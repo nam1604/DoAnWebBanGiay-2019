@@ -1,0 +1,146 @@
+/* Common */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    display: flex;
+    flex-direction: column;
+    font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Segoe UI", "Noto Sans Japanese", "ヒラギノ角ゴ ProN W3", Meiryo, sans-serif;
+    font-size: 16px;
+    width: 100%;
+  }
+  
+  a {
+    display: inline-block;
+    text-decoration: none;
+  }
+  
+  a:hover {
+    opacity: 0.7;
+    text-decoration: none;
+  }
+  
+  img {
+    max-height: 100%;
+    max-width: 100%;
+  }
+  
+  ul, ol {
+    list-style-type: none;
+  }
+  
+  input, select, textarea {
+    background: transparent;
+    border: none;
+    outline: none;
+  }
+  table, th, td {
+    border: 1px solid #FF7F00;
+    border-collapse: collapse;
+    font-size: 17px;
+  
+  }
+  table, td{
+    padding: 8px;
+  }
+  table#t01 tr:nth-child(even) {
+    background-color: #eee;
+  }
+  table#t01 tr:nth-child(odd) {
+    background-color: #fff;
+  }
+  .t01-td-capnhaAndXoa{
+    width: 150px;
+  }
+  .t01-td-chitietsanpham{
+    width: 150px;
+  }
+  /* ----------------------- */
+
+  .Header{
+    width: 100%;
+    height: 60px;
+    background:#eee;
+  }
+  .HeaderMenu{
+      display: flex;
+      width: 100%;
+      height: 100%;
+      align-items: center;
+      padding: 0 15px;
+  }
+  .HeaderMenu-items{
+    padding: 0 15px;
+  }
+
+  /* main */
+  .Main{
+      display: flex;
+      flex-flow: column wrap;
+  }
+
+  /*Main-loaisanpham  */
+  .Main-loaisanpham{
+      display: flex;
+      margin: 35px
+     
+  }
+.Main-loaisanphamForm{
+  width: 45%;
+  height: auto;
+}
+
+.Main-loaisanpham-contentleft-formthem{
+    display: flex;
+    padding: 5px;
+    flex-flow: column;
+ }
+
+.Main-loaisanpham-contentleft-formthem > input{
+    border: 1px solid #ff7fff;
+    width: 100%;
+    height: 30px;
+    border-radius: 15px;
+    padding: 0 15px;
+    font-size: 20px;
+    
+}
+.Main-loaisanpham-contentleft-formthem input:hover{
+  background: #dddbdbd5;
+  font-weight: 20px;
+  color: coral;
+  transition: all .888888888888s;
+}
+
+.Main-loaisanpham-contentleft-submit{
+    display: flex;
+    justify-content: center;
+  
+}
+
+.Main-loaisanpham-contentleft-submit > input{
+    border: 1px solid #eee;
+    width: 100px;
+    cursor: pointer;
+    height: 20px;
+    background: #FF7435;
+    border-radius: 15px;
+}
+.Main-loaisanpham-contentleft-submit input:hover{
+  background: orange;
+  transition: all .888888888888s;
+}
+
+.Main-loaisanpham-Showloaisanpham{
+    width: 100%;
+}
+
+/* san pham */
+
+.Main-loaisanpham-ShowChitiet{
+  display: flex ;
+}
+
