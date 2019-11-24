@@ -5,8 +5,9 @@
                 <form action="">
                         <div class="Main-loaisanpham-contentleft">
                             <div class="Main-loaisanpham-contentleft-formthem">
-                                <label for=""><h4>Tên Sản Phẩm: </h4></label>
-                                <input type="text" name="" id="" > 
+
+                                <label for=""><h4>id---- Ten sp </h4></label>
+                                <input type="text" name="" id="" value="id:1 ten : addias" disabled > 
                                 <br>
                                 <label for=""><h4>Giá: </h4></label>
                                 <input type="text" name="" id="" >   

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <base href="http://localhost:8080/webgiay-MVC/">
+  <base href="http://localhost:8080/DoAnWebBanGiay-2019/">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>web ban giay</title>
