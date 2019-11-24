@@ -32,6 +32,18 @@
       
     }
 
+    function xoaLoaiSanPham(){
+            
+      
+    }
+     
+    function capnhatLoaiSanPham(){
+            
+      
+    }
+
+   
+
 }
     
 ?>

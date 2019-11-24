@@ -26,7 +26,6 @@
                                 <br>
                                 <label for=""><h4>Mô tả sản phẩm: </h4></label>
                                 <textarea name="" id="" cols="30" rows="10" style=" border: 1px solid #ff7fff; border-radius: 15px;padding: 15px;"></textarea>
-
                             </div>
                             <div class="Main-loaisanpham-contentleft-submit"><input type="submit" value="Thêm"></div>
                         </div>

@@ -7,13 +7,24 @@
        
 
      }
-      public function showPageChiTietSanPham(){
+
+    public function showPageChiTietSanPham(){
     // Call Models
             // Call Views
             $this->view("MasterAdmin1", [
                 "page"=>"PageAdminQuanLyChiTietSanPham",
             ]);
-   }
+     }
+
+    public function xoaChiTietSanPham(){
+            
+      
+    }
+
+    public function capNhatChiTietSanPham(){
+            
+      
+    }
 
   
 

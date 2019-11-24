@@ -14,5 +14,15 @@
                 "page"=>"PageAdminQuanLySanPham",
             ]);
    }
+
+   public function xoaSanPham(){
+            
+      
+    }
+
+   public function capNhatSanPham(){
+            
+      
+    }
  }
 ?>
