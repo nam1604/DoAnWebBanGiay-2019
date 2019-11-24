@@ -6,7 +6,10 @@ class Home extends Controller{
 
     // Must have SayHi()
     function SayHi(){
-        echo " da fix htacass";
+        $this->view("MasterPage1", [
+            "Page"=>"ss",
+            "Mau"=>"red",   
+        ]);
 
     }
 
@@ -14,10 +17,7 @@ class Home extends Controller{
         // Call Models
 
         // Call Views
-        $this->view("MasterPage1", [
-            "Page"=>"ss",
-            "Mau"=>"red",   
-        ]);
+       
     }
 }
 ?>

@@ -1,18 +1,20 @@
-  <?php 
-          $chuyenJson = json_decode($data['loaiSanPham'],true);
-
-   ?>
+ <?php 
+      $chuyenJson = json_decode($data['loaiSanPham'],true);
+      $chuyenJson_oneLoai = json_decode($data['oneLoaiSanPham'],true);
+ ?>
  <main class="Main">
-        <h1> Day la trang them loai san pham</h1>
+        <h1> Day la trang cap nhatloai san pham</h1>
         <div class="Main-loaisanpham">  
             <div class="Main-loaisanphamForm">
-                <form action="./AdminQuanLyLoaiSanPham/themLoaiSanPham" method="post">
+                <form action="./AdminQuanLyLoaiSanPham/capnhatLoaiSanPham/<?php echo  $chuyenJson_oneLoai[0]['id_loaisp']; ?>" method="post">
                         <div class="Main-loaisanpham-contentleft">
                             <div class="Main-loaisanpham-contentleft-formthem">
+                                <label for=""><h4>ID Loai: </h4></label>
+                                <input type="text" name="tenloaisp" id="" value="<?php echo  $chuyenJson_oneLoai[0]['id_loaisp'];  ?>" disabled>
                                 <label for=""><h4>Ten Loai: </h4></label>
-                                <input type="text" name="tenloaisp" id="" >
+                                <input type="text" name="tenloaisp" id="" value="<?php echo  $chuyenJson_oneLoai[0]['tenloaisp'];  ?>"> 
                             </div>
-                            <div class="Main-loaisanpham-contentleft-submit"><input type="submit" value="them loai" name="themloaisp"></div>
+                            <div class="Main-loaisanpham-contentleft-submit"><input type="submit" value="Cap nhat" name="capnhatloaisp"></div>
                         </div>
                     </form>
             </div>  

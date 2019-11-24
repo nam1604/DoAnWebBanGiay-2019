@@ -16,7 +16,13 @@
                                 <input type="text" name="" id="" >   
                                 <br>
                                 <label for=""><h4>Size: </h4></label>
-                                <input type="text" name="" id="" >   
+                                  <select style="border: 1px solid #ff7fff; border-radius: 10px; height: 30px;">
+                                        <option value="audi"  selected>-------------Chọn Size-----------</option>
+                                        <option value="volvo">35</option>
+                                        <option value="saab">36</option>
+                                        <option value="vw">37</option>
+                                        
+                                 </select>
                                 <br>
                                 <label for=""><h4>Số lượng: </h4></label>
                                 <input type="text" name="" id="" >

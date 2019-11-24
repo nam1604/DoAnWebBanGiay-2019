@@ -18,11 +18,5 @@ class AdminQuanLySanPhamModel extends DB{
 
     }
     public function listAllLoaiSanPham(){
-       $qr = "SELECT * FROM tbl_loaisp ";
-       $result = mysqli_query($this->con,$qr);
-       $mang = array();
-       while($row = mysqli_fetch_array($result)){
-           $mang[]=$row;
-       }
-       return json_encode($mang);
+    
     }
