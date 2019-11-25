@@ -46,7 +46,7 @@
                       <td><?php echo  $chuyenJson_sp[$i]['tenloaisp'];  ?></td>
                       <td><?php echo  $chuyenJson_sp[$i]['id_sp'];  ?></td>
                       <td><?php echo  $chuyenJson_sp[$i]['tensp'];  ?></td>
-                      <td class="t01-td-chitietsanpham"><a href="./AdminQuanLyChiTietSanPham/showPageChiTietSanPham">Chi tiết sản phẩm</a></td>
+                      <td class="t01-td-chitietsanpham"><a href="./AdminQuanLyChiTietSanPham/showPageChiTietSanPham/<?php echo  $chuyenJson_sp[$i]['id_sp'];  ?>">Chi tiết sản phẩm</a></td>
                       <td class="t01-td-capnhaAndXoa"><a href="./AdminQuanLySanPham/showPageCapNhatSanPham/<?php echo  $chuyenJson_sp[$i]['id_sp'];  ?>">Cập nhật</a> | <a href="./AdminQuanLySanPham/xoaSanPham/<?php echo  $chuyenJson_sp[$i]['id_sp'];  ?>"> Xóa</a></td>
                     </tr>
                     <?php

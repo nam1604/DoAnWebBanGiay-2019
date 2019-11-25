@@ -1,7 +1,7 @@
 <?php 
   $chuyenJson_sp = json_decode($data['sanpham'],true);
   $chuyenJson_loaiSp = json_decode($data['loaisanpham'],true);
-  $chuyenJson_oneSp = json_decode($data['onesanpham'],true);
+  $chuyenJson_oneSp = json_decode($data['onesanpham'],true); 
  ?>
  <main class="Main">
         <h1> day la trang cap nhat san pham</h1>
@@ -27,7 +27,6 @@
                                  </select>
                                 <label for="" ><h4>Tên Sản Phẩm: </h4></label>
                                 <input type="text" name="tensp" id="" value="<?php echo  $chuyenJson_oneSp[0]['tensp'];  ?>" >  
-    
                             </div>
                             <div class="Main-loaisanpham-contentleft-submit"><input type="submit" value="Cập nhật" name="capnhatsp"></div>
                         </div>
@@ -50,7 +49,7 @@
                       <td><?php echo  $chuyenJson_sp[$i]['tenloaisp'];  ?></td>
                       <td><?php echo  $chuyenJson_sp[$i]['id_sp'];  ?></td>
                       <td><?php echo  $chuyenJson_sp[$i]['tensp'];  ?></td>
-                      <td class="t01-td-chitietsanpham"><a href="./AdminQuanLyChiTietSanPham/showPageChiTietSanPham">Chi tiết sản phẩm</a></td>
+                      <td class="t01-td-chitietsanpham"><a href="./AdminQuanLyChiTietSanPham/showPageChiTietSanPham/<?php echo  $chuyenJson_sp[$i]['id_sp'];  ?>">Chi tiết sản phẩm</a></td>
                       <td class="t01-td-capnhaAndXoa"><a href="./AdminQuanLySanPham/showPageCapNhatSanPham/<?php echo  $chuyenJson_sp[$i]['id_sp'];  ?>">Cập nhật</a> | <a href="./AdminQuanLySanPham/delete_SanPham/<?php echo  $chuyenJson_sp[$i]['id_sp'];  ?>"> Xóa</a></td>
                     </tr>
                     <?php

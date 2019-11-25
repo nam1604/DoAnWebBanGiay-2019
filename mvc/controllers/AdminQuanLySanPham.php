@@ -55,14 +55,11 @@
        if (isset($_POST['capnhatsp'])) {
           $tenSp = $_POST['tensp'];
           $idLoaiSp = $_POST['idLoaisp'];
+          echo $idLoaiSp;
           $this->sanPham-> update_SanPham($idSp,$idLoaiSp,$tenSp);
           //call views
-         $this->view("MasterAdmin1", [
-        "page"=>"PageAdminQuanLySanPham",
-        "sanpham"=> $this->sanPham ->listAllSanPham(),
-        "loaisanpham"=>$this->loaiSanPham->listAllLoaiSanPham()
-    ]);
-      }       
+           $this->showPageSanPham();
+       }       
       }
             
    }

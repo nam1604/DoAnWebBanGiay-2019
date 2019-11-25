@@ -13,7 +13,7 @@ class AdminQuanLySanPhamModel extends DB{
     } 
 
      public function update_SanPham($idSp,$idLoaiSp,$tenSp){
-       $sql =  "UPDATE dbl_sanpham SET tensp='$tenSp',id_loaisp='$idLoaiSp' WHERE idSp='$idSp'";
+       $sql =  "UPDATE dbl_sanpham SET tensp='$tenSp',id_loaisp='$idLoaiSp' WHERE id_sp='$idSp'";
        $result = mysqli_query($this->con,$sql);
     }
 
@@ -21,11 +21,11 @@ class AdminQuanLySanPhamModel extends DB{
     public function delete_SanPham($idSp){
        $sql = "DELETE FROM dbl_sanpham WHERE id_sp = '$idSp' ";
         $result = mysqli_query($this->con,$sql);
-    }
+    } 
 
     public function oneSanPham($idSp){
 
-       $qr = "SELECT * FROM dbl_sanpham,dbl_loaisp where id_sp = '$idSp'";
+       $qr = "SELECT * FROM dbl_sanpham JOIN dbl_loaisp on dbl_sanpham.id_loaisp = dbl_loaisp.id_loaisp where id_sp = '$idSp'AND dbl_sanpham.id_loaisp = dbl_loaisp.id_loaisp";
        $result = mysqli_query($this->con,$qr);
     
        $mang = array();
