@@ -46,7 +46,6 @@
     function xoaLoaiSanPham($idLoaiSp){
         if ($idLoaiSp != NULL) {
              $this->loaiSanPham ->delete_LoaiSanPham($idLoaiSp);
-            echo "$idLoaiSp";
              $this->view("MasterAdmin1", [
                 "page"=>"PageAdminQuanLyLoaiSanPham",
                 "loaiSanPham"=> $this->loaiSanPham ->listAllLoaiSanPham()
