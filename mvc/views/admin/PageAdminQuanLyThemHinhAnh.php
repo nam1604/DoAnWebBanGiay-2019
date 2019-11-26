@@ -1,6 +1,6 @@
 <?php 
-  $chuyenJson_Size = json_decode($data['size'],true);
-  $chuyenJson_Sp = json_decode($data['sanpham'],true);
+
+  
   
  ?>
 <main class="Main">
@@ -10,12 +10,16 @@
                 <form action="./AdminQuanLyChiTietSanPham/themHinhAnh" method="post" enctype="multipart/form-data">
                         <div class="Main-loaisanpham-contentleft">
                             <div class="Main-loaisanpham-contentleft-formthem">
-
+                                <label for=""><h4>Id chi tiết sản phẩm </h4></label>
+                                <input type="input" name="idchitiet" value="<?php echo $data['idchitiet'] ?>" id="" style="font-size: 0.9em; padding: 3px ; border-radius: 5px;"  disabled> 
+                                <input type="hidden" name="idsp" value="<?php echo $data['idSp'] ?>" hidden >  
+                                 <input type="hidden" name="idchitiet" value="<?php echo $data['idchitiet'] ?>" hidden >  
+                                <br>
                                <label for=""><h4>Hình Ảnh: </h4></label>
                                 <input type="file" name="file[]" multiple="multiple" id="" style="font-size: 0.9em; padding: 3px ; border-radius: 5px;" >   
                                 <br>
                             </div>
-                            <div class="Main-loaisanpham-contentleft-submit"><input type="submit" value="Thêm" name="themchitietsp"></div>
+                            <div class="Main-loaisanpham-contentleft-submit"><input type="submit" value="Thêm" name="themhinh"></div>
                         </div>
                     </form>
                     

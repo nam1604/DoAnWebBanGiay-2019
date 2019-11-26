@@ -13,15 +13,15 @@ class AdminQuanLyHinhAnhModel extends DB{
          
     }
 
-    public function insert_HinhAnh($maso_sanpham,$hinhAnh){
-    	$sql ="INSERT INTO dbl_anh(maso_sanpham,hinhanh) VALUES('$maso_sanpham','$hinhAnh')";
+    public function insert_HinhAnh($idChiTiet,$hinhAnh){
+    	$sql ="INSERT INTO dbl_anh(id_chitiet,hinhanh) VALUES('$idChiTiet','$hinhAnh')";
       $result = mysqli_query($this->con,$sql);
         
     }
 
-    public function delete_HinhAnh(){
-       //  $sql ="DELETE FROM dbl_anh VALUES('$maso_sanpham','$hinhAnh')";
-       // $result = mysqli_query($this->con,$sql);
+    public function delete_HinhAnh($id_Anh){
+      $sql= "DELETE FROM products WHERE id_anh='$id_Anh'";
+      $result = mysqli_query($this->con,$sql);
         
     }
 
