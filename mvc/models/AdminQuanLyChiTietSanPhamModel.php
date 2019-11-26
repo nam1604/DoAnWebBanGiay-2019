@@ -1,8 +1,8 @@
 <?php
 class AdminQuanLyChiTietSanPhamModel extends DB{
     
-    public function insert_ChiTietSanPham($maso_sanpham,$mota,$gia,$idSize,$idsp){
-       $sql="INSERT INTO dbl_chitiet_sp(maso_sanpham,mota_sp,gia_sp,id_size,id_sp) VALUES('$maso_sanpham','$mota','$gia','$idSize','$idsp')";
+    public function insert_ChiTietSanPham($idsp,$maso_sanpham,$gia,$idMau,$idsize,$soluong,$mota){
+       $sql="INSERT INTO dbl_chitiet_sp(id_sp,maso_sanpham,gia_sp,id_mau,id_size,soluong,mota_sp) VALUES('$idsp','$maso_sanpham','$gia','$idMau','$idsize','$soluong','$mota')";
        $result = mysqli_query($this->con,$sql);
     }
 
@@ -26,66 +26,14 @@ class AdminQuanLyChiTietSanPhamModel extends DB{
 
     public function listAllChiTietSanPham(){
       
-     
-
-    }
-
-
-    // xu ly size
-
-    public function get_Size(){
-      $sql = "SELECT * FROM dbl_size";
+      $sql = "SELECT * FROM dbl_chitiet_sp JOIN dbl_sanpham ON dbl_chitiet_sp.id_sp = dbl_sanpham.id_sp JOIN dbl_size ON dbl_chitiet_sp.id_size = dbl_size.id_size JOIN dbl_mau ON dbl_chitiet_sp.id_mau = dbl_mau.id_mau JOIN dbl_anh ON dbl_chitiet_sp.id_chitiet = dbl_anh.id_chitiet  WHERE dbl_chitiet_sp.id_sp = dbl_sanpham.id_sp AND dbl_chitiet_sp.id_size = dbl_size.id_size AND dbl_chitiet_sp.id_mau = dbl_mau.id_mau AND dbl_chitiet_sp.id_chitiet = dbl_anh.id_chitiet";
       $result = mysqli_query($this->con,$sql);
       $mang = array();
        while($row = mysqli_fetch_array($result)){
            $mang[]=$row;
        }
        return json_encode($mang);
-        
-    }
 
-    // xu ly hinh anh 
-    public function get_HinhAnh(){
-      $sql = "SELECT * FROM dbl_anh";
-      $result = mysqli_query($this->con,$sql);
-      $mang = array();
-       while($row = mysqli_fetch_array($result)){
-           $mang[]=$row;
-       }
-       return json_encode($mang);
-        
-    }
-
-    public function insert_HinhAnh($maso_sanpham,$hinhAnh){
-    	$sql ="INSERT INTO dbl_anh(maso_sanpham,hinhanh) VALUES('$maso_sanpham','$hinhAnh')";
-      	$result = mysqli_query($this->con,$sql);
-        
-    }
-
-    public function delete_HinhAnh(){
-      
-        
-    }
-
-    // xu ly Mau
-    public function get_Mau(){
-      $sql = "SELECT * FROM dbl_mau";
-      $result = mysqli_query($this->con,$sql);
-      $mang = array();
-       while($row = mysqli_fetch_array($result)){
-           $mang[]=$row;
-       }
-       return json_encode($mang);
-        
-    } 
-    public function insert_Mau($maso_sanpham,$mau){
-      $sql="INSERT INTO dbl_mau(maso_sanpham,mau) VALUES('$maso_sanpham','$mau')";
-      $result = mysqli_query($this->con,$sql);
-        
-    }
-    public function delete_mau($idMau){
-      $sql = "DELETE FROM dbl_mau WHERE id_mau ='$idMau'";
-      $result = mysqli_query($this->con,$sql);
     }
 
 
