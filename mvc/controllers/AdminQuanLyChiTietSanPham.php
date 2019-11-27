@@ -26,7 +26,23 @@
                 "sanpham"=>$this->sanPham->oneSanPham($idSp),
                 "size"=> $this->size->get_Size(),
                 "mausac"=> $this->mausac->get_Mau(),
-                "chitietsanpham"=> $this ->chiTietSanPham->listAllChiTietSanPham()
+                "chitietsanpham"=> $this ->chiTietSanPham->listAllChiTietSanPham(),
+                "hinhanh"=>$this ->hinhAnh->get_HinhAnh()
+            ]);
+            
+         }
+
+         public function showPageCapNhatChiTietSanPham($idSp,$idChiTiet){
+            // Call Models
+            // Call Views
+             $this->view("MasterAdmin1", [
+                "page"=>"PageAdminQuanLyCapNhatChiTietSanPham",
+                "sanpham"=>$this->sanPham->oneSanPham($idSp),
+                "oneChiTietSanPham"=> $this->chiTietSanPham ->oneChiTietSanPham($idChiTiet),
+                "size"=> $this->size->get_Size(),
+                "mausac"=> $this->mausac->get_Mau(),
+                "chitietsanpham"=> $this ->chiTietSanPham->listAllChiTietSanPham(),
+                "hinhanh"=>$this ->hinhAnh->get_HinhAnh()
             ]);
             
          }
@@ -109,16 +125,39 @@
             }
          }
 
-
-        
-
-        public function xoaChiTietSanPham(){
+        public function xoaHinhAnh($idSp,$idHinh){
                  
-          
+                 $this->hinhAnh ->delete_HinhAnh($idHinh);
+
+                  $this->showPageChiTietSanPham($idSp);
+        }
+        
+        public function xoaChiTietSanPham($idSp,$idChiTiet){
+                 
+                 $this->hinhAnh ->delete_AllHinhAnh($idChiTiet);
+                 $this->chiTietSanPham ->delete_ChiTietSanPham($idChiTiet);
+
+                return $this->showPageChiTietSanPham($idSp);
         }
 
-        public function capNhatChiTietSanPham(){
-                
+        public function capNhatChiTietSanPham($idChiTiet){
+            if ($idChiTiet != NULL) {
+                    if (isset($_POST['capnhatchitietsp'])) {
+                        // get data tu form
+                        $idsp = $_POST['idsp'];
+                        $maso_sanpham = $_POST['masanpham'];
+                        $gia = $_POST['gia'];
+                        $idMau = $_POST['mau'];
+                        $idsize = $_POST['idsize'];
+                        $soluong = $_POST['soluong'];
+                        $mota = $_POST['mota'];
+
+                        // them du dieu vao dtb
+                        $this->chiTietSanPham ->update_ChiTietSanPham($idChiTiet,$maso_sanpham,$gia,$idMau,$idsize,$soluong,$mota);
+                        // call views
+                        $this->showPageChiTietSanPham($idsp);
+                }
+            }  
           
         }
 

@@ -222,3 +222,15 @@
   border-radius: 50%;
   background: white;
 }
+
+/* style nut xoa anh*/
+.Main-loaisanpham-ShowChitiet-hinhanh-p{
+  
+
+}
+.Main-loaisanpham-ShowChitiet-hinhanh-p:hover{
+  
+  height: 40px;
+  background: red;
+ transition: all .25s;
+}

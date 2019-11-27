@@ -20,7 +20,13 @@ class AdminQuanLyHinhAnhModel extends DB{
     }
 
     public function delete_HinhAnh($id_Anh){
-      $sql= "DELETE FROM products WHERE id_anh='$id_Anh'";
+      $sql= "DELETE FROM dbl_anh WHERE id_anh='$id_Anh'";
+      $result = mysqli_query($this->con,$sql);
+        
+    }
+
+    public function delete_AllHinhAnh($idChiTietsp){
+      $sql= "DELETE FROM dbl_anh WHERE id_chitiet='$idChiTietsp'";
       $result = mysqli_query($this->con,$sql);
         
     }
