@@ -16,11 +16,16 @@
                                 <input type="text" name="" id="" value="<?php echo  $chuyenJson_oneSp[0]['id_sp'];  ?>" disabled > 
                                 <label for=""><h4>Loại sản phẩm</h4></label>
                                 <select name="idLoaisp" style="border: 1px solid #ff7fff; border-radius: 10px; height: 30px;">
-                                     <option value="0"  selected>-------------Chọn loại sản phẩm-----------</option>
+                                     <option value="0"  >-------------Chọn loại sản phẩm-----------</option>
                                     <?php 
                                        for($i = 0; $i < count($chuyenJson_loaiSp);$i++) { 
                                     ?>
-                                     <option value="<?php echo  $chuyenJson_loaiSp[$i]['id_loaisp'];  ?>"><?php echo  $chuyenJson_loaiSp[$i]['tenloaisp'];  ?></option>
+                                     <option 
+                                       <?php 
+                                       if ($chuyenJson_loaiSp[$i]['id_loaisp']==$chuyenJson_oneSp[0]['id_loaisp']) {
+                                         echo "selected";
+                                       } 
+                                     ?> value="<?php echo  $chuyenJson_loaiSp[$i]['id_loaisp'];  ?>"><?php echo  $chuyenJson_loaiSp[$i]['tenloaisp'];  ?></option>
                                     <?php
                                      } 
                                     ?>

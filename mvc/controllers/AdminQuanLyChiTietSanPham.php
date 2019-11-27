@@ -53,7 +53,10 @@
              $this->view("MasterAdmin1", [
                 "page"=>"PageAdminQuanLyThemHinhAnh", 
                 "idchitiet"=>$idChiTiet,
-                "idSp"=>$idSP
+                "idSp"=>$idSP,
+                "chitietsanpham"=> $this ->chiTietSanPham->listAllChiTietSanPham(),
+                "hinhanh"=>$this ->hinhAnh->get_HinhAnh(),
+                "sanpham"=>$this->sanPham->oneSanPham($idSP)
             ]);
          }
 
