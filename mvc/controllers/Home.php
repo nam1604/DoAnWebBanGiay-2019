@@ -47,13 +47,13 @@ class Home extends Controller{
         ]);
     }
 
-    function ShowSanPham_details(){
+    function ShowSanPham_details($idChiTietSp){
 
          $this->view("MasterPage1", [
             "page"=>"detailProduct",
             "size"=> $this->size->get_Size(),
             "mausac"=> $this->mausac->get_Mau(),
-            "chitietsanpham"=> $this ->chiTietSanPham->listAllChiTietSanPham(),
+            "chitietsanpham"=> $this ->chiTietSanPham->oneChiTietSanPham($idChiTietSp),
             "hinhanh"=>$this ->hinhAnh->get_HinhAnh(),
             "loaisanpham"=> $this ->loaiSanPham->listAllLoaiSanPham(),
         ]);

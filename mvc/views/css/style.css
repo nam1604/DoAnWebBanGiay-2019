@@ -253,7 +253,7 @@
   }
 
   .container-hinhanh-hinhlon{
-   
+   display: flex;
     width: 585px;
     height: 450px;
     margin:  auto;
@@ -266,7 +266,9 @@
   }
 
   .container-hinhanh-hinhlon__img{
-    width: 100%;
+    width: 580px;
+    height: 445px;
+    margin: auto;
   }
 
   .container-hinhanh-listhinhanh > ul{
@@ -300,7 +302,9 @@
     width: 150px;
   }
 
- 
+ .form-container-chitietsanpham{
+  width: 100%;
+ }
   .container-chitietsanpham{
     display: flex;
     flex-flow: column;

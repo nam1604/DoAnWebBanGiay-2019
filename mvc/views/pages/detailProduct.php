@@ -1,38 +1,53 @@
+<?php 
+    $chuyenJson_oneChieTietSanPham = json_decode($data['chitietsanpham'],true);
+     $chuyenJson_hinhanh = json_decode($data['hinhanh'],true);
+  
+
+ ?>
 <div class="container">
       <div class="container-hinhanhAndChitiet">
             <div class="container-hinhanh">
                 <div class="container-hinhanh-hinhlon">
-                    <img class="container-hinhanh-hinhlon__img" src="images/alphabouse.jpg" alt="">
+                    <img class="container-hinhanh-hinhlon__img" src="./uploads/<?php   for ($i=0; $i < count($chuyenJson_hinhanh) ; $i++) { 
+       if($chuyenJson_oneChieTietSanPham[0]['id_chitiet']== $chuyenJson_hinhanh[$i]['id_chitiet']){
+            echo $chuyenJson_hinhanh[$i]['hinhanh'];
+            break;
+       }
+    } ?>" alt="">
                 </div>
                 <div class="container-hinhanh-listhinhanh">
                     <ul class="container-hinhanh-listhinhanh-list" >
-                        <li><img src="images/alphabouse.jpg" alt="" class="container-hinhanh-listhinhanh-listItemsImg"></li>
-                        <li><img src="images/alphabouse.jpg" alt=""  class="container-hinhanh-listhinhanh-listItemsImg"></li>
-                        <li ><img src="images/alphabouse.jpg" alt="" class="container-hinhanh-listhinhanh-listItemsImg"></li>
+                        <?php 
+                            for ($j=1; $j < count($chuyenJson_hinhanh) ; $j++) {
+                                if($chuyenJson_oneChieTietSanPham[0]['id_chitiet'] == $chuyenJson_hinhanh[$j]['id_chitiet']){
+                         ?>
+                        <li><img src="./uploads/<?php 
+                            echo $chuyenJson_hinhanh[$j]['hinhanh'];
+                    
+                        ?>" alt="" class="container-hinhanh-listhinhanh-listItemsImg">
+                        </li>
+                                    
+                        <?php 
+                             }   
+                            }
+                         ?>
                     </ul>
                 </div>
             </div>
             <form action="" method="POST" class="form-container-chitietsanpham">
             <div class="container-chitietsanpham">
-                <h2 class="container-chitietsanpham__tensp">ADDIAS MILITARY LOW TOP - DARK EARTH</h2>
-                <div class="container-chitietsanpham-maspAndTrangthai" style="padding-right: 25px;"><label for="">Mã sản phẩm:<h3>A60036</h3></label> <label for="">Tình trạng: <h3>active</h3></label></div>
-                <p class="container-chitietsanpham__gia">Gia : 50000000 vnd</p>
+                <h2 class="container-chitietsanpham__tensp"><?php echo $chuyenJson_oneChieTietSanPham[0]['tensp'] ?></h2>
+                <div class="container-chitietsanpham-maspAndTrangthai" style="padding-right: 25px;"><label for="">Mã sản phẩm:<h3><?php echo $chuyenJson_oneChieTietSanPham[0]['maso_sanpham'] ?></h3></label> <label for="">Tình trạng: <h3>active</h3></label></div>
+                <p class="container-chitietsanpham__gia">Gia : <?php echo $chuyenJson_oneChieTietSanPham[0]['gia_sp'] ?> vnd</p>
                 <hr style=" border-top: 1px solid #aaaa; margin: 10px 0; background: #aaaa;">
                 <div class="container-chitietsanpham-mota">
                   <h3>Mo ta</h3>
-                  <p>san pham dung rat dadasdasdsads
-                    san pham dung rat dadasdasdsads
-                    san pham dung rat dadasdasdsads
-                    san pham dung rat dadasdasdsads
-                    san pham dung rat dadasdasdsads
-                    san pham dung rat dadasdasdsads
+                  <p><?php echo $chuyenJson_oneChieTietSanPham[0]['mota_sp'] ?>
                   </p>
                 </div>
                 <hr style=" border-top: 1px solid #aaaa; margin: 10px 0; background: #aaaa;">
                 <div class="container-chitietsanpham-mau" >
-                  <a href=""><input type="button" style="background: red; cursor: pointer; width: 30px; height: 30px;border: 1px solid #eee; border-radius: 2px;" value="" ></a>
-                  <a href=""><input type="button" style="background: blue;cursor: pointer; width: 30px; height: 30px;border: 1px solid #eee; border-radius: 2px;" value=""></a> 
-                  <a href=""><input type="button" style="background: pink; cursor: pointer; width: 30px; height: 30px;border: 1px solid #eee; border-radius: 2px;" value=""></a>
+                  <a href=""><input type="button" style="background: <?php echo $chuyenJson_oneChieTietSanPham[0]['mau'] ?>; cursor: pointer; width: 30px; height: 30px;border: 1px solid #eee; border-radius: 2px;" value="" ></a>
                 </div>
                 <hr style=" border-top: 1px solid #aaaa; margin: 10px 0; background: #aaaa;">
                 <div class="container-chitietsanpham-sizeAndSoluong">
