@@ -36,17 +36,6 @@ class AdminQuanLySanPhamModel extends DB{
         
     }
 
-    // public function listAllSanPham_TheoLoai($loaiSp){
-    //    $qr = "SELECT * FROM dbl_sanpham  where   dbl_sanpham.id_loaisp = '$loaiSp'";
-    //    $result = mysqli_query($this->con,$qr);
-    //    $mang = array();
-    //    while($row = mysqli_fetch_array($result)){
-    //        $mang[]=$row;
-    //    }
-    //    return json_encode($mang);
-    
-    // }
-
     public function listAllSanPham(){
        $qr = "SELECT * FROM dbl_sanpham ,dbl_loaisp where   dbl_sanpham.id_loaisp = dbl_loaisp.id_loaisp";
        $result = mysqli_query($this->con,$qr);

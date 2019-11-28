@@ -38,12 +38,12 @@ class Home extends Controller{
 // listAllSanPham_TheoLoai
         // Call Views
          $this->view("MasterPage1", [
-            "page"=>"showAllProduct",
+            "page"=>"ShowSanPham_TheoLoai",
             "size"=> $this->size->get_Size(),
             "mausac"=> $this->mausac->get_Mau(),
-            "chitietsanpham"=> $this ->chiTietSanPham->listAllChiTietSanPham(),
+            "chitietsanpham"=> $this ->chiTietSanPham->listAllChiTietSanPham_TheoLoai($idLoai),
             "hinhanh"=>$this ->hinhAnh->get_HinhAnh(),
-            "loaisanpham"=> $this ->loaiSanPham->listAllLoaiSanPham(),
+            "loaisanpham"=> $this ->loaiSanPham->listAllLoaiSanPham()
         ]);
     }
 }
