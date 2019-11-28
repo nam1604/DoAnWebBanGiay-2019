@@ -26,7 +26,7 @@
     <!-- show content main -->
   <?php
      if(isset($data["page"])){
-       require_once("pages/"."showAllProduct".".php");
+       require_once("pages/".$data['page'].".php");
       
     }else{
       echo "<h1>Chung toi dang khac phuc loi </h1>";

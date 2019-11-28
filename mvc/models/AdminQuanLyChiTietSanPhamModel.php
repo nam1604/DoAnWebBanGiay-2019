@@ -45,6 +45,7 @@ class AdminQuanLyChiTietSanPhamModel extends DB{
        return json_encode($mang);
 
     }
+
      public function listAllChiTietSanPham_TheoLoai($loaiSp){
      
       $sql = "SELECT * FROM dbl_chitiet_sp JOIN dbl_sanpham ON dbl_chitiet_sp.id_sp = dbl_sanpham.id_sp JOIN dbl_size ON dbl_chitiet_sp.id_size = dbl_size.id_size JOIN dbl_mau ON dbl_chitiet_sp.id_mau = dbl_mau.id_mau JOIN dbl_loaisp ON dbl_sanpham.id_loaisp = dbl_loaisp.id_loaisp WHERE dbl_chitiet_sp.id_sp = dbl_sanpham.id_sp AND dbl_chitiet_sp.id_size = dbl_size.id_size AND dbl_chitiet_sp.id_mau = dbl_mau.id_mau And dbl_sanpham.id_loaisp = dbl_loaisp.id_loaisp AND  dbl_sanpham.id_loaisp = '$loaiSp'  ";
@@ -56,8 +57,6 @@ class AdminQuanLyChiTietSanPhamModel extends DB{
        return json_encode($mang);
     
     }
-
-    
 
     public function listAllChiTietSanPham(){
       
@@ -72,5 +71,5 @@ class AdminQuanLyChiTietSanPhamModel extends DB{
     }
 
 
-}
+ }
 ?> 

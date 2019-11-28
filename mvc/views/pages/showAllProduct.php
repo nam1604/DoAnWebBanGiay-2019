@@ -8,7 +8,7 @@
           for ($i=0; $i < count($chuyenJson_chitietsp) ; $i++){
          ?>
         <div class="Showsanpham-items">
-          <a href="detailsProduct.html" class="Showsanpham-items-stylea">
+          <a href="./Home/ShowSanPham_details" class="Showsanpham-items-stylea">
             <div class="Showsanpham-items-stylea-picture">
               <img src="./uploads/<?php 
                  for ($j=0; $j < count($chuyenJson_hinhanh); $j++) { 

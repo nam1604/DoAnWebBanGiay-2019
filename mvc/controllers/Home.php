@@ -35,7 +35,7 @@ class Home extends Controller{
 
     function ShowSanPham_TheoLoai($idLoai){        
         // Call Models
-// listAllSanPham_TheoLoai
+        
         // Call Views
          $this->view("MasterPage1", [
             "page"=>"ShowSanPham_TheoLoai",
@@ -46,5 +46,19 @@ class Home extends Controller{
             "loaisanpham"=> $this ->loaiSanPham->listAllLoaiSanPham()
         ]);
     }
+
+    function ShowSanPham_details(){
+
+         $this->view("MasterPage1", [
+            "page"=>"detailProduct",
+            "size"=> $this->size->get_Size(),
+            "mausac"=> $this->mausac->get_Mau(),
+            "chitietsanpham"=> $this ->chiTietSanPham->listAllChiTietSanPham(),
+            "hinhanh"=>$this ->hinhAnh->get_HinhAnh(),
+            "loaisanpham"=> $this ->loaiSanPham->listAllLoaiSanPham(),
+        ]);
+    }
+
+
 }
 ?>
