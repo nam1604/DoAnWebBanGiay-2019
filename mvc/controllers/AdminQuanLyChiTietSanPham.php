@@ -26,7 +26,7 @@
                 "sanpham"=>$this->sanPham->oneSanPham($idSp),
                 "size"=> $this->size->get_Size(),
                 "mausac"=> $this->mausac->get_Mau(),
-                "chitietsanpham"=> $this ->chiTietSanPham->listAllChiTietSanPham(),
+                "chitietsanpham"=> $this ->chiTietSanPham->listAllChiTietSanPham_theosanpham($idSp),
                 "hinhanh"=>$this ->hinhAnh->get_HinhAnh()
             ]);
             
@@ -41,7 +41,7 @@
                 "oneChiTietSanPham"=> $this->chiTietSanPham ->oneChiTietSanPham($idChiTiet),
                 "size"=> $this->size->get_Size(),
                 "mausac"=> $this->mausac->get_Mau(),
-                "chitietsanpham"=> $this ->chiTietSanPham->listAllChiTietSanPham(),
+                "chitietsanpham"=> $this ->chiTietSanPham->listAllChiTietSanPham_theosanpham($idSp),
                 "hinhanh"=>$this ->hinhAnh->get_HinhAnh()
             ]);
             
@@ -54,7 +54,7 @@
                 "page"=>"PageAdminQuanLyThemHinhAnh", 
                 "idchitiet"=>$idChiTiet,
                 "idSp"=>$idSP,
-                "chitietsanpham"=> $this ->chiTietSanPham->listAllChiTietSanPham(),
+                "chitietsanpham"=> $this ->chiTietSanPham->listAllChiTietSanPham_theosanpham($idSP),
                 "hinhanh"=>$this ->hinhAnh->get_HinhAnh(),
                 "sanpham"=>$this->sanPham->oneSanPham($idSP)
             ]);

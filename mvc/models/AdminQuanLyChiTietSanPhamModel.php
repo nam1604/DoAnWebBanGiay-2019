@@ -34,6 +34,20 @@ class AdminQuanLyChiTietSanPhamModel extends DB{
         
     }
 
+    public function listAllChiTietSanPham_theosanpham($idSp){
+      
+      $sql = "SELECT * FROM dbl_chitiet_sp JOIN dbl_sanpham ON dbl_chitiet_sp.id_sp = dbl_sanpham.id_sp JOIN dbl_size ON dbl_chitiet_sp.id_size = dbl_size.id_size JOIN dbl_mau ON dbl_chitiet_sp.id_mau = dbl_mau.id_mau WHERE dbl_chitiet_sp.id_sp = dbl_sanpham.id_sp AND dbl_chitiet_sp.id_size = dbl_size.id_size AND dbl_chitiet_sp.id_mau = dbl_mau.id_mau AND dbl_chitiet_sp.id_sp= $idSp";
+      $result = mysqli_query($this->con,$sql);
+      $mang = array();
+       while($row = mysqli_fetch_array($result)){
+           $mang[]=$row;
+       }
+       return json_encode($mang);
+
+    }
+
+    
+
     public function listAllChiTietSanPham(){
       
       $sql = "SELECT * FROM dbl_chitiet_sp JOIN dbl_sanpham ON dbl_chitiet_sp.id_sp = dbl_sanpham.id_sp JOIN dbl_size ON dbl_chitiet_sp.id_size = dbl_size.id_size JOIN dbl_mau ON dbl_chitiet_sp.id_mau = dbl_mau.id_mau WHERE dbl_chitiet_sp.id_sp = dbl_sanpham.id_sp AND dbl_chitiet_sp.id_size = dbl_size.id_size AND dbl_chitiet_sp.id_mau = dbl_mau.id_mau";

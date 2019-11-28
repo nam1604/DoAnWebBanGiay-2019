@@ -151,6 +151,9 @@
   .Showsanpham-items-stylea:hover{
       background: #E6E6E6   ;
   }
+  .Showsanpham-items-stylea-picture{
+    height: 250px;  
+  }
   .Showsanpham-items-stylea-picture__img{
     width: 100%;
     height: 75%;
