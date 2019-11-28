@@ -1,7 +1,5 @@
 <?php
 
-
-
 class Home extends Controller{
 
     public $chiTietSanPham;
@@ -29,13 +27,14 @@ class Home extends Controller{
             "chitietsanpham"=> $this ->chiTietSanPham->listAllChiTietSanPham(),
             "hinhanh"=>$this ->hinhAnh->get_HinhAnh(),
             "loaisanpham"=> $this ->loaiSanPham->listAllLoaiSanPham(),
+            "sanPham"=>$this ->sanPham->listAllSanPham()
         ]);
 
-    }
+    } 
 
     function ShowSanPham_TheoLoai($idLoai){        
         // Call Models
-        
+
         // Call Views
          $this->view("MasterPage1", [
             "page"=>"ShowSanPham_TheoLoai",
@@ -43,11 +42,12 @@ class Home extends Controller{
             "mausac"=> $this->mausac->get_Mau(),
             "chitietsanpham"=> $this ->chiTietSanPham->listAllChiTietSanPham_TheoLoai($idLoai),
             "hinhanh"=>$this ->hinhAnh->get_HinhAnh(),
-            "loaisanpham"=> $this ->loaiSanPham->listAllLoaiSanPham()
+            "loaisanpham"=> $this ->loaiSanPham->listAllLoaiSanPham(),
+            "sanPham"=>$this ->sanPham->listAllSanPham_TheoLoai($idLoai)
         ]);
     }
 
-    function ShowSanPham_details($idChiTietSp){
+    function ShowSanPham_details($idChiTietSp,$idSp){
 
          $this->view("MasterPage1", [
             "page"=>"detailProduct",
@@ -56,9 +56,18 @@ class Home extends Controller{
             "chitietsanpham"=> $this ->chiTietSanPham->oneChiTietSanPham($idChiTietSp),
             "hinhanh"=>$this ->hinhAnh->get_HinhAnh(),
             "loaisanpham"=> $this ->loaiSanPham->listAllLoaiSanPham(),
+            "listAllChiTietSanPham_theosanpham"=> $this ->chiTietSanPham->listAllChiTietSanPham_theosanpham($idSp)
+            
         ]);
     }
 
+    function Select_Mausac($idmau){
+
+    }
+
+    function Select_Mausac1($idmau){
+        
+    }
 
 }
 ?>
