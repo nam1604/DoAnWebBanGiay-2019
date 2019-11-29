@@ -3,8 +3,10 @@
     $chuyenJson_hinhanh = json_decode($data['hinhanh'],true);
     $chuyenJson_listAllChiTietSanPham_theosanpham = json_decode($data['listAllChiTietSanPham_theosanpham'],true);
     $chuyenJson_mausac = json_decode($data['mausac'],true);
-
+    $chuyenJson_size = json_decode($data['size'],true);
  ?>
+
+
     <div class="container">
         <div class="container-hinhanhAndChitiet">
             <div class="container-hinhanh">
@@ -44,8 +46,15 @@
                         <label for="">Tình trạng:
                             <h3>active</h3></label>
                     </div>
-                    <p class="container-chitietsanpham__gia">Gia :
-                        <?php echo $chuyenJson_oneChieTietSanPham[0]['gia_sp'] ?> vnd</p>
+
+                    <hr style=" border-top: 1px solid #aaaa; margin: 10px 0; background: #aaaa;">
+                      <div class="container-chitietsanpham-maspAndTrangthai" style="padding-right: 25px;">
+                        <label for="">Giá:
+                            <h4><?php echo $chuyenJson_oneChieTietSanPham[0]['gia_sp'] ?></h4></label>
+                        <label for="">Còn:
+                            <h4><?php echo $chuyenJson_oneChieTietSanPham[0]['soluong']; ?> </h4>(sản phẩm)</label>
+                    </div>
+                   
                     <hr style=" border-top: 1px solid #aaaa; margin: 10px 0; background: #aaaa;">
                     <div class="container-chitietsanpham-mota">
                         <h3>Mo ta</h3>
@@ -61,7 +70,7 @@
                                      if ($chuyenJson_mausac[$i]['id_mau'] == $chuyenJson_listAllChiTietSanPham_theosanpham[$j]['id_mau']) {
 
                          ?>
-                        <a href=""><input type="button" style="background: <?php echo $chuyenJson_mausac[$i]['mau'] ?>; cursor: pointer; width: 30px; height: 30px;border: 1px solid #eee; border-radius: 2px;" value="" ></a>
+                        <a href="./Home/Select_Mausac/<?php echo $chuyenJson_mausac[$i]['id_mau']; ?>/<?php echo $data['idSp']; ?>"><input type="button" style="background: <?php echo $chuyenJson_mausac[$i]['mau'] ?>; cursor: pointer; width: 30px; height: 30px;border: 1px solid #eee; border-radius: 2px;" value="" ></a>
                         <?php           
                                             break;
                                      }
@@ -73,26 +82,27 @@
                     <div class="container-chitietsanpham-sizeAndSoluong">
                         <div class="container-chitietsanpham-size">
                             <label for="">Size: </label>
-                            <select  style="width: 70%;border: 1px solid #aaaa; border-radius: 10px;">
-                                    <option value="volvo">size 1</option>
-                                    <option value="saab">size 2</option>
-                                    <option value="opel">size 3</option>
-                                    <option value="audi">size 4</option>
+                            <select  style="width: 70%;border: 1px solid #aaaa; border-radius: 10px;">  <?php 
+                            for ($i=0; $i < count($chuyenJson_size) ; $i++) { 
+                                 for ($j=0; $j < count($chuyenJson_listAllChiTietSanPham_theosanpham) ; $j++){
+                                     if ($chuyenJson_size[$i]['id_size'] == $chuyenJson_listAllChiTietSanPham_theosanpham[$j]['id_size']) {
+
+                         ?>
+
+                                    <option value="volvo"><?php echo $chuyenJson_size[$i]['size'] ?></option>
+                                    
+
+                            <?php           
+                                            break;
+                                     }
+                                 }
+                            }
+                         ?>        
                             </select>
                         </div>
                         <div class="container-chitietsanpham-soluong">
-                            <label for="">Số lượng: </label>
-                            <select name="soluong" style="width: 70%;border: 1px solid #aaaa; border-radius: 10px;">
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
-                                <option value="6">6</option>
-                                <option value="7">7</option>
-                                <option value="8">8</option>
-                                <option value="9">9</option>
-                            </select>
+                            <label for="">Số lượng: </label><!-- name="soluong" -->
+                            <input name="soluong"  type="text" style="border: 1px solid #eee; border-radius: 10px; text-align: center;">
                         </div>
                     </div>
                     <div class="container-chitietsanpham-quydinhdoitra">

@@ -373,6 +373,7 @@ ul.testimonials > li {
     padding: 10px 0;
     display: flex;
     justify-content: space-between;
+
 }
 
 .container-chitietsanpham-size {
@@ -383,6 +384,8 @@ ul.testimonials > li {
 .container-chitietsanpham-soluong {
     flex: 1;
     display: flex;
+    padding-left: 55px;
+    
 }
 
 .container-chitietsanpham-quydinhdoitra {

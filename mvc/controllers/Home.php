@@ -56,18 +56,31 @@ class Home extends Controller{
             "chitietsanpham"=> $this ->chiTietSanPham->oneChiTietSanPham($idChiTietSp),
             "hinhanh"=>$this ->hinhAnh->get_HinhAnh(),
             "loaisanpham"=> $this ->loaiSanPham->listAllLoaiSanPham(),
-            "listAllChiTietSanPham_theosanpham"=> $this ->chiTietSanPham->listAllChiTietSanPham_theosanpham($idSp)
+            "listAllChiTietSanPham_theosanpham"=> $this ->chiTietSanPham->listAllChiTietSanPham_theosanpham($idSp),
+            "idSp"=> $idSp
             
         ]);
     }
 
-    function Select_Mausac($idmau){
+    function Select_Mausac($idmau,$idSp){
+        //tim kiem tung chi chi tiet theo sản phâm rồi so sánh sp đó lấy láy id_mau trùng vs them số $id_mau, lay ra id_chitietdautien
+        //b1: lay all chi tiet san pham theo loai
+        $chiTietSanPham_theosp = $this ->chiTietSanPham->listAllChiTietSanPham_theosanpham($idSp);
+        $chuyenJson_chiTietSanPham_theosp = json_decode($chiTietSanPham_theosp,true);
+        $id_chitiet_sp_cantimmau;
+        // b2 : kiem id mau trong list
+        for ($i=0; $i < count($chuyenJson_chiTietSanPham_theosp) ; $i++) { 
+            if ($chuyenJson_chiTietSanPham_theosp[$i]['id_mau'] == $idmau ) {
+                $id_chitiet_sp_cantimmau = $chuyenJson_chiTietSanPham_theosp[$i]['id_chitiet'] ;
+                break;
+            }
+        }
 
+        $this->ShowSanPham_details($id_chitiet_sp_cantimmau,$idSp);
+  
     }
 
-    function Select_Mausac1($idmau){
-        
-    }
+   
 
 }
 ?>
