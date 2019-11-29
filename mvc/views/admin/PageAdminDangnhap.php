@@ -1,14 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <base href="http://localhost:8080/DoAnWebBanGiay-2019/">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="./mvc/views/css/styleAdmind.css">
-    <title>Document</title>
-</head>
-<body>
+
    
 <style>
 
@@ -53,7 +43,7 @@
     </div>
     <div class="fateher"> 
          <div class="admin_dangnhap" >
-            <form action="./Admin/CheckDangNhap_Admin" class="form-dangnhapadmin">
+            <form action="./Admin/CheckDangNhap_Admin" class="form-dangnhapadmin" method="post">
                 <label for=""><h3>Username</h3></label>
                 <input type="text" name="usernameAdmin" id="">
                 <label for=""><h3>Password</h3></label>
@@ -68,5 +58,3 @@
         
 </div>
   
-</body>
-</html>

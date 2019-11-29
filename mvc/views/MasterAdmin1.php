@@ -8,17 +8,22 @@
 	<link rel="stylesheet" href="./mvc/views/css/styleAdmind.css">
 </head>
 <body>
-	<?php 
-		require_once('block/MenuAdmin.php');
-	 ?>
-	 
+	
 	 <?php
-		 if(isset($data["page"])){
-			 require_once("./mvc/views/admin/".$data["page"].".php");
-			
-		}else{
-			echo "<h1>Chào mừng bạn đến voi page ADmin!!!s </h1>";
+	 	if(!isset($_SESSION)){
+		    session_start();
 		}
+		if ($data['page']=='PageAdminDangnhap') {
+			require_once("./mvc/views/admin/".$data["page"].".php");
+		}else{
+			if (!isset($_SESSION['usernameAdmin-login'])) {
+				require_once("./mvc/views/admin/".'PageAdminDangnhap'.".php");
+			}else{ 
+				require_once('block/MenuAdmin.php');
+				 require_once("./mvc/views/admin/".$data["page"].".php");
+				}	
+		}
+	
 	 ?>
 	 
 	
