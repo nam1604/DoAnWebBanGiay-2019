@@ -85,7 +85,7 @@
                             <select  style="width: 70%;border: 1px solid #aaaa; border-radius: 10px;">  <?php 
                             for ($i=0; $i < count($chuyenJson_size) ; $i++) { 
                                  for ($j=0; $j < count($chuyenJson_listAllChiTietSanPham_theosanpham) ; $j++){
-                                     if ($chuyenJson_size[$i]['id_size'] == $chuyenJson_listAllChiTietSanPham_theosanpham[$j]['id_size']) {
+                                     if ($chuyenJson_size[$i]['id_size'] == $chuyenJson_listAllChiTietSanPham_theosanpham[$j]['id_size'] && $chuyenJson_listAllChiTietSanPham_theosanpham[$j]['maso_sanpham']==$chuyenJson_oneChieTietSanPham[0]['maso_sanpham']) {
 
                          ?>
 
