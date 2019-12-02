@@ -5,7 +5,22 @@
     padding: 0;
     box-sizing: border-box;
 }
-
+a{
+    text-decoration: none;
+    color: #000;
+  }
+  a:hover{
+    color: orange;
+    transition: all 0.5s ease;
+  }
+  ul{
+    list-style-type: none;
+  }
+  table, th, td {
+    border: 1px solid rgb(160, 157, 157);
+    border-collapse: collapse;
+    padding: 5px;
+  }
 body {
     display: flex;
     flex-flow: column;
@@ -418,4 +433,86 @@ ul.testimonials > li {
 }
 
 
-/*style nut checkbõx*/
+/*form*/
+ /* form */
+.container-form{
+  height: auto;
+  width: 70%;
+  margin: 10px auto;
+
+}
+.container-form-formdangky{
+    display: flex ;
+    flex-flow: column;
+  
+
+}
+.container-form-formdangky input,select{
+  width: 100%;
+  margin: 10px 0;
+  height: 30px;
+  border: 1px solid orange;
+  border-radius: 10px;
+  padding: 0 10px;
+}
+.container-form-formdangky textarea{
+  border: 1px solid orange;
+  border-radius: 10px;
+  padding: 0 10px;
+}
+
+ .container-form-formdangky-items{
+  width: 100%;
+  text-align: center;
+}
+.container-form-formdangky-items_input{
+  text-align: center;
+  margin: 10px;
+  cursor: pointer;
+}
+.container-form-formdangky-items_input:hover{
+  background: orange;
+  transition: all 0.5s ease;
+}
+
+.container-active{
+padding-top: 80px;
+  height: 400px;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+}
+/* trang user */
+.container-quanlyuser{
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  padding: 10px 10px;
+
+}
+.container-quanlyuserleft{
+  min-height: 600px;
+  width: 20%;
+  
+}
+.container-quanlyuserleft li{
+  border: 1px solid #eee;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  height: 50px;
+}
+.container-quanlyuserright{
+  flex: 1;
+}
+/* gio hang */
+.container-giohang{
+  margin: 10px;
+}
+/* Home cart */
+.container-homecar{
+  display: flex;
+  flex-flow: column;
+  min-height: 400px;
+}
