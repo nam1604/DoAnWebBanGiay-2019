@@ -1,7 +1,7 @@
   <div class="container">
         <div class="container-form">
             <div style="width: 100%; text-align:center;"><h3>Trang đăng ký tài khoản</h3></div>
-            <form action="" method="POST" class="container-form-formdangky">
+            <form action="./HomeUser/Dangky" method="POST" class="container-form-formdangky">
                 <label for="">Ho ten</label>
                 <input name="hoten" type="text">
 
@@ -19,13 +19,13 @@
                   <option value="0">Nam</option>
                   <option value="1">Nữ</option>
                 </select>
-
-                <div>
+ 
+                <!-- <div>
                 <label for="">Ngay Sinh</label>
                <input type="date" name="ngaysinh" >
-                </div>
+                </div> -->
                 <div class="container-form-formdangky-items">
-                    <input class="container-form-formdangky-items_input" value="Đăng ký" type="submit" style=" width: 70px;">
+                    <input class="container-form-formdangky-items_input" name="dangkyUser" value="Đăng ký" type="submit" style=" width: 70px;">
                     
                 </div>
             </form>

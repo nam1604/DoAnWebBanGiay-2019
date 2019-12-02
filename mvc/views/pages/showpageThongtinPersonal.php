@@ -31,10 +31,10 @@
                               <option value="1">Nữ</option>
                             </select>
             
-                            <div>
+                           <!--  <div>
                             <label for="">Ngay Sinh</label>
                            <input type="date" name="ngaysinh" >
-                            </div>
+                            </div> -->
                             <div class="container-form-formdangky-items">
                                 <input class="container-form-formdangky-items_input" value="cập nhật" type="submit" style=" width: 70px;">
                                 
