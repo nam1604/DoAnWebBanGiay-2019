@@ -106,7 +106,23 @@ class HomeUser extends Controller{
             }
         }
  
-    }  
+    } 
+
+    function Dangxuat(){
+        unset($_SESSION['usernameUser-login']);
+        // call views
+         $this->view("MasterPage1", [
+                    "page"=>"showAllProduct",
+                    "size"=> $this->size->get_Size(),
+                    "mausac"=> $this->mausac->get_Mau(),
+                    "chitietsanpham"=> $this ->chiTietSanPham->listAllChiTietSanPham(),
+                    "hinhanh"=>$this ->hinhAnh->get_HinhAnh(),
+                    "loaisanpham"=> $this ->loaiSanPham->listAllLoaiSanPham(),
+                    "sanPham"=>$this ->sanPham->listAllSanPham(),
+                    "thongbao"=>"đăng nhập thành công"
+                ]);
+
+    } 
 
     
 }

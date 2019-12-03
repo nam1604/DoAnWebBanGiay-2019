@@ -12,6 +12,9 @@
 </head>
 <body>
 <?php 
+  if(!isset($_SESSION)){
+        session_start();
+    }
   require_once('block/MenuTopHomePage.php');
  ?>
   <main>
