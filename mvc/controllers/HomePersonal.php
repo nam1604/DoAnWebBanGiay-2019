@@ -21,60 +21,72 @@ class HomePersonal extends Controller{
   
 
     function Show_thontinPersonal(){
-         $this->view("MasterPage1", [
-            "page"=>"showpageThongtinPersonal",
-            "size"=> $this->size->get_Size(),
-            "mausac"=> $this->mausac->get_Mau(),
-            "chitietsanpham"=> $this ->chiTietSanPham->listAllChiTietSanPham(),
-            "hinhanh"=>$this ->hinhAnh->get_HinhAnh(),
-            "loaisanpham"=> $this ->loaiSanPham->listAllLoaiSanPham(),
-            "sanPham"=>$this ->sanPham->listAllSanPham()
-        ]);
+        if (isset($_SESSION['usernameUser-login'])) {
+                 $this->view("MasterPage1", [
+                "page"=>"showpageThongtinPersonal",
+                "size"=> $this->size->get_Size(),
+                "mausac"=> $this->mausac->get_Mau(),
+                "chitietsanpham"=> $this ->chiTietSanPham->listAllChiTietSanPham(),
+                "hinhanh"=>$this ->hinhAnh->get_HinhAnh(),
+                "loaisanpham"=> $this ->loaiSanPham->listAllLoaiSanPham(),
+                "sanPham"=>$this ->sanPham->listAllSanPham()
+            ]);
+        }else{
+                 $this->view("MasterPage1", [
+                "page"=>"showAllProduct",
+                "size"=> $this->size->get_Size(),
+                "mausac"=> $this->mausac->get_Mau(),
+                "chitietsanpham"=> $this ->chiTietSanPham->listAllChiTietSanPham(),
+                "hinhanh"=>$this ->hinhAnh->get_HinhAnh(),
+                "loaisanpham"=> $this ->loaiSanPham->listAllLoaiSanPham(),
+                "sanPham"=>$this ->sanPham->listAllSanPham()
+            ]);
+
+        }
+        
 
     }
 
     function Show_doimatkhau(){
-         $this->view("MasterPage1", [
-            "page"=>"showpageDoimatkhau",
+        if (isset($_SESSION['usernameUser-login'])) {
+                  $this->view("MasterPage1", [
+                "page"=>"showpageDoimatkhau",
+                "size"=> $this->size->get_Size(),
+                "mausac"=> $this->mausac->get_Mau(),
+                "chitietsanpham"=> $this ->chiTietSanPham->listAllChiTietSanPham(),
+                "hinhanh"=>$this ->hinhAnh->get_HinhAnh(),
+                "loaisanpham"=> $this ->loaiSanPham->listAllLoaiSanPham(),
+                "sanPham"=>$this ->sanPham->listAllSanPham()
+            ]);
+        }else{
+                 $this->view("MasterPage1", [
+            "page"=>"showAllProduct",
             "size"=> $this->size->get_Size(),
             "mausac"=> $this->mausac->get_Mau(),
             "chitietsanpham"=> $this ->chiTietSanPham->listAllChiTietSanPham(),
             "hinhanh"=>$this ->hinhAnh->get_HinhAnh(),
             "loaisanpham"=> $this ->loaiSanPham->listAllLoaiSanPham(),
             "sanPham"=>$this ->sanPham->listAllSanPham()
-        ]);
+         ]);
+
+        }
+       
 
     }
 
     function Show_quanlydonhang(){
-         $this->view("MasterPage1", [
-            "page"=>"ShowpageQuanlydonhang",
-            "size"=> $this->size->get_Size(),
-            "mausac"=> $this->mausac->get_Mau(),
-            "chitietsanpham"=> $this ->chiTietSanPham->listAllChiTietSanPham(),
-            "hinhanh"=>$this ->hinhAnh->get_HinhAnh(),
-            "loaisanpham"=> $this ->loaiSanPham->listAllLoaiSanPham(),
-            "sanPham"=>$this ->sanPham->listAllSanPham()
-        ]);
-
-    }
-
-    function Show_donggopykien(){
-         $this->view("MasterPage1", [
-            "page"=>"ShowpageDonggopykien",
-            "size"=> $this->size->get_Size(),
-            "mausac"=> $this->mausac->get_Mau(),
-            "chitietsanpham"=> $this ->chiTietSanPham->listAllChiTietSanPham(),
-            "hinhanh"=>$this ->hinhAnh->get_HinhAnh(),
-            "loaisanpham"=> $this ->loaiSanPham->listAllLoaiSanPham(),
-            "sanPham"=>$this ->sanPham->listAllSanPham()
-        ]);
-
-    }
-
-     function Thoat_user(){
-        
-         $this->view("MasterPage1", [
+        if (isset($_SESSION['usernameUser-login'])) {
+                $this->view("MasterPage1", [
+                "page"=>"ShowpageQuanlydonhang",
+                "size"=> $this->size->get_Size(),
+                "mausac"=> $this->mausac->get_Mau(),
+                "chitietsanpham"=> $this ->chiTietSanPham->listAllChiTietSanPham(),
+                "hinhanh"=>$this ->hinhAnh->get_HinhAnh(),
+                "loaisanpham"=> $this ->loaiSanPham->listAllLoaiSanPham(),
+                "sanPham"=>$this ->sanPham->listAllSanPham()
+            ]);
+        }else{
+                   $this->view("MasterPage1", [
             "page"=>"showAllProduct",
             "size"=> $this->size->get_Size(),
             "mausac"=> $this->mausac->get_Mau(),
@@ -83,8 +95,12 @@ class HomePersonal extends Controller{
             "loaisanpham"=> $this ->loaiSanPham->listAllLoaiSanPham(),
             "sanPham"=>$this ->sanPham->listAllSanPham()
         ]);
-
+        }
     }
+
+ 
+
+     
 
 
    

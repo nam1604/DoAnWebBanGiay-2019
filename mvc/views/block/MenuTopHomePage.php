@@ -15,9 +15,9 @@
                   <li class="top-nav-container-menu__flex"><a href="./HomeUser/Dangxuat"><i class="fas fa-user-check"></i>
                    Đăng xuất </a></li>';
                 }else{
-                  echo '<li class="top-nav-container-menu__flex"><a href="./Home/Show_login"><i class="far fa-user"></i>
+                  echo '<li class="top-nav-container-menu__flex"><a href="./Home/Show_singin"><i class="far fa-user"></i>
                     sing in</a></li>
-                  <li class="top-nav-container-menu__flex"><a href="./Home/Show_register"><i class="fas fa-key"></i>
+                  <li class="top-nav-container-menu__flex"><a href="./Home/Show_singup"><i class="fas fa-key"></i>
                     sing up</a></li>';
                 }
                ?>

@@ -7,9 +7,6 @@
                           <li><a href="./HomePersonal/Show_thontinPersonal">Thông tin</a> </li>
                           <li><a href="./HomePersonal/Show_doimatkhau">Đổi mật khẩu</a></li>
                           <li><a href="./HomePersonal/Show_quanlydonhang">Quản lý đơn hàng</a> </li>
-                          <li><a href="">Giỏ hàng</a></li>
-                          <li><a href="./HomePersonal/Show_donggopykien">Đóng góp ý kiến</a></li>
-                          <li> <a href="./HomePersonal/Thoat_user">Thoát</a></li>
                       </ul>
                 </div>
           <div class="container-quanlyuserright">

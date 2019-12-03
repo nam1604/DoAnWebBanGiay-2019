@@ -109,6 +109,7 @@ class HomeUser extends Controller{
     } 
 
     function Dangxuat(){
+        
         unset($_SESSION['usernameUser-login']);
         // call views
          $this->view("MasterPage1", [

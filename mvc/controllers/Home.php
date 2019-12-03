@@ -81,7 +81,8 @@ class Home extends Controller{
     }
 
     function Show_personal(){
-         $this->view("MasterPage1", [
+        if (isset($_SESSION['usernameUser-login'])) {
+            $this->view("MasterPage1", [
             "page"=>"ShowpagePersonal",
             "size"=> $this->size->get_Size(),
             "mausac"=> $this->mausac->get_Mau(),
@@ -90,10 +91,14 @@ class Home extends Controller{
             "loaisanpham"=> $this ->loaiSanPham->listAllLoaiSanPham(),
             "sanPham"=>$this ->sanPham->listAllSanPham()
         ]);
+        }else{
+            $this->SayHi();
+        }
+        
 
     }
 
-    function Show_login(){
+    function Show_singin(){
          $this->view("MasterPage1", [
             "page"=>"ShopageLogin",
             "size"=> $this->size->get_Size(),
@@ -106,7 +111,7 @@ class Home extends Controller{
 
     }
 
-    function Show_register(){
+    function Show_singup(){
          $this->view("MasterPage1", [
             "page"=>"showpageRegister",
             "size"=> $this->size->get_Size(),
