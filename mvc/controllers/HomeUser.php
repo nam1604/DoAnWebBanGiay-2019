@@ -27,6 +27,7 @@ class HomeUser extends Controller{
             $sdt=$_POST['sdt'];
             $email=$_POST['email'];
             $password=$_POST['password'];
+            $password = password_hash($password, PASSWORD_DEFAULT);
             $gioitinh=$_POST['gioitinh'];
             $trangthaiActive=0;
             
@@ -70,15 +71,40 @@ class HomeUser extends Controller{
 
 
      function Dangnhap(){
-         $this->view("MasterPage1", [
-            "page"=>"showAllProduct",
-            "size"=> $this->size->get_Size(),
-            "mausac"=> $this->mausac->get_Mau(),
-            "chitietsanpham"=> $this ->chiTietSanPham->listAllChiTietSanPham(),
-            "hinhanh"=>$this ->hinhAnh->get_HinhAnh(),
-            "loaisanpham"=> $this ->loaiSanPham->listAllLoaiSanPham(),
-            "sanPham"=>$this ->sanPham->listAllSanPham()
-        ]);
+         if (isset($_POST['dangnhapUser'])) {
+            $username =$_POST['email'];
+            $password =$_POST['password'];
+            $password = password_hash($password, PASSWORD_DEFAULT);
+
+            $ketqua = $this->user ->get_User($username,$password);
+          
+            if ($ketqua != NULL) {
+                $_SESSION['usernameUser-login']=$username;
+                // call views
+                 $this->view("MasterPage1", [
+                    "page"=>"showAllProduct",
+                    "size"=> $this->size->get_Size(),
+                    "mausac"=> $this->mausac->get_Mau(),
+                    "chitietsanpham"=> $this ->chiTietSanPham->listAllChiTietSanPham(),
+                    "hinhanh"=>$this ->hinhAnh->get_HinhAnh(),
+                    "loaisanpham"=> $this ->loaiSanPham->listAllLoaiSanPham(),
+                    "sanPham"=>$this ->sanPham->listAllSanPham(),
+                    "thongbao"=>"đăng nhập thành công"
+                ]);
+
+            }else{
+                $this->view("MasterPage1", [
+                    "page"=>"ShopageLogin",
+                    "size"=> $this->size->get_Size(),
+                    "mausac"=> $this->mausac->get_Mau(),
+                    "chitietsanpham"=> $this ->chiTietSanPham->listAllChiTietSanPham(),
+                    "hinhanh"=>$this ->hinhAnh->get_HinhAnh(),
+                    "loaisanpham"=> $this ->loaiSanPham->listAllLoaiSanPham(),
+                    "sanPham"=>$this ->sanPham->listAllSanPham(),
+                    "thongbao"=>"Bạn nhập sai tài khoản hoặc mật khẩu"
+                ]);
+            }
+        }
  
     }  
 

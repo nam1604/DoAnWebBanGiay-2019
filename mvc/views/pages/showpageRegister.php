@@ -5,11 +5,13 @@
                 <label for="">Ho ten</label>
                 <input name="hoten" type="text">
 
-                <label for="">sdt</label>
+                <label for="">Sdt</label>
                 <input name="sdt" type="text">
 
-                <label for="">email</label>
-                <input name="email" type="email" >
+                <label for="">Email</label>
+                <div style="color: blue ; font-size: 15px; margin-left: 2px;" id="messageEmail"></div>
+                <input name="email" type="email" id="emailUser">
+
 
                 <label for="">matkhau</label>
                 <input name="password" type="password">

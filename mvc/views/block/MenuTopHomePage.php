@@ -10,11 +10,13 @@
                 Cart</a></li>
 
               <li class="top-nav-container-menu__flex"><a href="./Home/Show_login"><i class="far fa-user"></i>
-                Login</a></li>
+                sing in</a></li>
               <li class="top-nav-container-menu__flex"><a href="./Home/Show_register"><i class="fas fa-key"></i>
-                Register</a></li>
-                <li class="top-nav-container-menu__flex"><a href="./Home/Show_personal"><i class="fas fa-user-check"></i>
+                sing up</a></li>
+              <li class="top-nav-container-menu__flex"><a href="./Home/Show_personal"><i class="fas fa-user-check"></i>
                 personal</a></li>
+              <li class="top-nav-container-menu__flex"><a href="./Home/Show_personal"><i class="fas fa-user-check"></i>
+               Đăng xuất </a></li>
             </ul>
           </div>
         </nav>

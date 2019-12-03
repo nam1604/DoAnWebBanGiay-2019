@@ -1,7 +1,7 @@
  <div class="container">
         <div class="container-form">
             <div style="width: 100%; text-align:center;"><h3>Trang đăng nhập</h3></div>
-            <form action="" method="POST" class="container-form-formdangky">
+            <form action="./HomeUser/Dangnhap" method="POST" class="container-form-formdangky">
 
                 <label for="">Tài khoản</label>
                 <input name="email" type="email" placeholder=" email" >
@@ -11,11 +11,11 @@
                 
                 <div>
                     <a href="./Home/Show_register">Đăng ký tài khoản</a> /
-                    <a href="">Quên mật khẩu</a>
+                    <a href="./Home/Show_Quenmatkhau">Quên mật khẩu</a>
                 
                 </div>
                 <div class="container-form-formdangky-items">
-                    <input class="container-form-formdangky-items_input" type="submit" style=" width: 70px;">
+                    <input class="container-form-formdangky-items_input" name="dangnhapUser" type="submit" style=" width: 70px;">
                     
                 </div>
             </form>

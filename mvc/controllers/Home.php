@@ -119,6 +119,19 @@ class Home extends Controller{
 
     }
 
+    function Show_Quenmatkhau(){
+         $this->view("MasterPage1", [
+            "page"=>"showpageRegister",
+            "size"=> $this->size->get_Size(),
+            "mausac"=> $this->mausac->get_Mau(),
+            "chitietsanpham"=> $this ->chiTietSanPham->listAllChiTietSanPham(),
+            "hinhanh"=>$this ->hinhAnh->get_HinhAnh(),
+            "loaisanpham"=> $this ->loaiSanPham->listAllLoaiSanPham(),
+            "sanPham"=>$this ->sanPham->listAllSanPham()
+        ]);
+
+    }
+
 
    
 
