@@ -8,6 +8,7 @@ class Home extends Controller{
     public $hinhAnh;
     public $size;
     public $mausac;
+    public $user;
 
     public function __construct(){
         //model
@@ -17,6 +18,7 @@ class Home extends Controller{
         $this->size = $this->model("AdminQuanLySizeModel");
         $this->hinhAnh = $this->model("AdminQuanLyHinhAnhModel");
         $this->mausac = $this->model("AdminQuanLyMauSacModel");
+        $this->user = $this->model("HomeUserModel");
     }
 
     function SayHi(){
@@ -89,7 +91,8 @@ class Home extends Controller{
             "chitietsanpham"=> $this ->chiTietSanPham->listAllChiTietSanPham(),
             "hinhanh"=>$this ->hinhAnh->get_HinhAnh(),
             "loaisanpham"=> $this ->loaiSanPham->listAllLoaiSanPham(),
-            "sanPham"=>$this ->sanPham->listAllSanPham()
+            "sanPham"=>$this ->sanPham->listAllSanPham(),
+            "getAllUser"=>$this->user->get_AllUser($_SESSION['usernameUser-login']),
         ]);
         }else{
             $this->SayHi();

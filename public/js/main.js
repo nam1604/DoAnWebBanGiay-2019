@@ -6,6 +6,7 @@ $(document).ready(function(){
 				$("#messageEmail").html('Email hợp lệ !!');
 			}else{
 				$("#messageEmail").html('Email đã có người đăng ký !!!');
+				
 			}
 			
 		})

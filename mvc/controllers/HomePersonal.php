@@ -7,6 +7,7 @@ class HomePersonal extends Controller{
     public $hinhAnh;
     public $size;
     public $mausac;
+    public $user;
 
     public function __construct(){
         //model
@@ -16,12 +17,14 @@ class HomePersonal extends Controller{
         $this->size = $this->model("AdminQuanLySizeModel");
         $this->hinhAnh = $this->model("AdminQuanLyHinhAnhModel");
         $this->mausac = $this->model("AdminQuanLyMauSacModel");
+        $this->user = $this->model("HomeUserModel");
     }
 
   
 
     function Show_thontinPersonal(){
         if (isset($_SESSION['usernameUser-login'])) {
+                
                  $this->view("MasterPage1", [
                 "page"=>"showpageThongtinPersonal",
                 "size"=> $this->size->get_Size(),
@@ -29,7 +32,8 @@ class HomePersonal extends Controller{
                 "chitietsanpham"=> $this ->chiTietSanPham->listAllChiTietSanPham(),
                 "hinhanh"=>$this ->hinhAnh->get_HinhAnh(),
                 "loaisanpham"=> $this ->loaiSanPham->listAllLoaiSanPham(),
-                "sanPham"=>$this ->sanPham->listAllSanPham()
+                "sanPham"=>$this ->sanPham->listAllSanPham(),
+                "getAllUser"=>$this->user->get_AllUser($_SESSION['usernameUser-login']),
             ]);
         }else{
                  $this->view("MasterPage1", [
@@ -56,7 +60,8 @@ class HomePersonal extends Controller{
                 "chitietsanpham"=> $this ->chiTietSanPham->listAllChiTietSanPham(),
                 "hinhanh"=>$this ->hinhAnh->get_HinhAnh(),
                 "loaisanpham"=> $this ->loaiSanPham->listAllLoaiSanPham(),
-                "sanPham"=>$this ->sanPham->listAllSanPham()
+                "sanPham"=>$this ->sanPham->listAllSanPham(),
+                "getAllUser"=>$this->user->get_AllUser($_SESSION['usernameUser-login']),
             ]);
         }else{
                  $this->view("MasterPage1", [
@@ -77,17 +82,18 @@ class HomePersonal extends Controller{
     function Show_quanlydonhang(){
         if (isset($_SESSION['usernameUser-login'])) {
                 $this->view("MasterPage1", [
-                "page"=>"ShowpageQuanlydonhang",
+                "page"=>"showpageDoimatkhau",
                 "size"=> $this->size->get_Size(),
                 "mausac"=> $this->mausac->get_Mau(),
                 "chitietsanpham"=> $this ->chiTietSanPham->listAllChiTietSanPham(),
                 "hinhanh"=>$this ->hinhAnh->get_HinhAnh(),
                 "loaisanpham"=> $this ->loaiSanPham->listAllLoaiSanPham(),
-                "sanPham"=>$this ->sanPham->listAllSanPham()
+                "sanPham"=>$this ->sanPham->listAllSanPham(),
+                "getAllUser"=>$this->user->get_AllUser($_SESSION['usernameUser-login']),
             ]);
         }else{
                    $this->view("MasterPage1", [
-            "page"=>"showAllProduct",
+            "page"=>"showpageDoimatkhau",
             "size"=> $this->size->get_Size(),
             "mausac"=> $this->mausac->get_Mau(),
             "chitietsanpham"=> $this ->chiTietSanPham->listAllChiTietSanPham(),
@@ -98,12 +104,84 @@ class HomePersonal extends Controller{
         }
     }
 
- 
+    function CapNhatUser($idUser){
+        if (isset($_POST['capnhatUser'])) {
+            $hoten = $_POST['hoten'];
+            $sdt =$_POST['sdt'];
+            $gioitinh =$_POST['gioitinh'];
 
-     
+            $this->user->capnhat_user($idUser,$hoten,$sdt,$gioitinh);
+
+            $this->Show_thontinPersonal();
 
 
-   
+
+        }
+    }
+
+     function Capnhatpassword($idUser){
+        if (isset($_POST['capnhatpassword'])) {
+
+            $passwordold = $_POST['passwordold'];
+            $username = $_POST['email'];
+
+            $passwordold = md5($passwordold);
+            $ketqua = $this->user ->get_User($username,$passwordold);
+            $passwordnew0 = $_POST['passwordnew0'];
+           
+
+            $passwordnew1 = $_POST['passwordnew1'];
+          
+
+            if ($ketqua == 1) {
+
+                if ($passwordnew0 == $passwordnew1) {
+                     $passwordnew0 = md5($passwordnew0);
+                    // call views
+                    $this->user->update_password($idUser,$passwordnew0);
+                 $this->view("MasterPage1", [
+                    "page"=>"showpageDoimatkhau",
+                    "size"=> $this->size->get_Size(),
+                    "mausac"=> $this->mausac->get_Mau(),
+                    "chitietsanpham"=> $this ->chiTietSanPham->listAllChiTietSanPham(),
+                    "hinhanh"=>$this ->hinhAnh->get_HinhAnh(),
+                    "loaisanpham"=> $this ->loaiSanPham->listAllLoaiSanPham(),
+                    "sanPham"=>$this ->sanPham->listAllSanPham(),
+                    "getAllUser"=>$this->user->get_AllUser($_SESSION['usernameUser-login']),
+                    "thongbao"=>"Đổi mật khẩu thành công"
+                ]);
+                }else{
+                     $this->view("MasterPage1", [
+                    "page"=>"showpageDoimatkhau",
+                    "size"=> $this->size->get_Size(),
+                    "mausac"=> $this->mausac->get_Mau(),
+                    "chitietsanpham"=> $this ->chiTietSanPham->listAllChiTietSanPham(),
+                    "hinhanh"=>$this ->hinhAnh->get_HinhAnh(),
+                    "loaisanpham"=> $this ->loaiSanPham->listAllLoaiSanPham(),
+                    "sanPham"=>$this ->sanPham->listAllSanPham(),
+                    "getAllUser"=>$this->user->get_AllUser($_SESSION['usernameUser-login']),
+                    "thongbao"=>"Mật khẩu mới không trùng nhau.!!! "
+                    ]);
+                }
+
+               } else{
+                         $this->view("MasterPage1", [
+                    "page"=>"showpageDoimatkhau",
+                    "size"=> $this->size->get_Size(),
+                    "mausac"=> $this->mausac->get_Mau(),
+                    "chitietsanpham"=> $this ->chiTietSanPham->listAllChiTietSanPham(),
+                    "hinhanh"=>$this ->hinhAnh->get_HinhAnh(),
+                    "loaisanpham"=> $this ->loaiSanPham->listAllLoaiSanPham(),
+                    "sanPham"=>$this ->sanPham->listAllSanPham(),
+                    "getAllUser"=>$this->user->get_AllUser($_SESSION['usernameUser-login']),
+                    "thongbao"=>"Mật khẩu tài khoản bạn sai. !!!"
+                    ]);
+                }
+
+        }
+    }
+
+    
 
 }
 ?>

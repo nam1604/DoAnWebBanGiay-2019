@@ -27,7 +27,7 @@ class HomeUser extends Controller{
             $sdt=$_POST['sdt'];
             $email=$_POST['email'];
             $password=$_POST['password'];
-            $password = password_hash($password, PASSWORD_DEFAULT);
+            $password = md5($password);
             $gioitinh=$_POST['gioitinh'];
             $trangthaiActive=0;
             
@@ -74,11 +74,13 @@ class HomeUser extends Controller{
          if (isset($_POST['dangnhapUser'])) {
             $username =$_POST['email'];
             $password =$_POST['password'];
-            $password = password_hash($password, PASSWORD_DEFAULT);
+            $password = md5($password);
 
             $ketqua = $this->user ->get_User($username,$password);
+            
+
           
-            if ($ketqua != NULL) {
+            if ($ketqua == 1) {
                 $_SESSION['usernameUser-login']=$username;
                 // call views
                  $this->view("MasterPage1", [
