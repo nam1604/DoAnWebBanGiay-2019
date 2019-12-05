@@ -34,7 +34,7 @@ class HomeUser extends Controller{
             $this->user->insert_user($hoten,$sdt,$email,$password,$gioitinh,$trangthaiActive);
             
             // khai bao chu de gui va noi dung
-            $subjects = "Adidas store xác nhận đăng ký tài khoản !!";
+            $subjects = "Adidas store xac nhan tai khoan !!";
             $body="Chào mừng bạn đã đăng ký tài khoản của chúng tôi. Xin vui lòng Active tai khoản bằng cách nhấp vào link để kích hoạc tài khoản";
             $link="HomeUser/ActiveTaikhoan/".$email;
 
