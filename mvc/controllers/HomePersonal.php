@@ -82,7 +82,7 @@ class HomePersonal extends Controller{
     function Show_quanlydonhang(){
         if (isset($_SESSION['usernameUser-login'])) {
                 $this->view("MasterPage1", [
-                "page"=>"showpageDoimatkhau",
+                "page"=>"ShowpageQuanlydonhang",
                 "size"=> $this->size->get_Size(),
                 "mausac"=> $this->mausac->get_Mau(),
                 "chitietsanpham"=> $this ->chiTietSanPham->listAllChiTietSanPham(),

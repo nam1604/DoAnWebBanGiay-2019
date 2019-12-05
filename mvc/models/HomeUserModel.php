@@ -16,7 +16,7 @@ class HomeUserModel extends DB{
          $sql = "SELECT * FROM dbl_user WHERE email='$username' AND password='$password'AND trangthaiActive = 1";
          $rows = mysqli_query($this->con,$sql);
       
-          $kq = 0;
+        $kq = 0;
            if(mysqli_num_rows($rows) > 0){
               $kq= 1;
            }
