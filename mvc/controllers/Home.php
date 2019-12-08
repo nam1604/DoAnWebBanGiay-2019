@@ -9,6 +9,7 @@ class Home extends Controller{
     public $size;
     public $mausac;
     public $user;
+    public $donhang;
 
     public function __construct(){
         //model
@@ -19,6 +20,7 @@ class Home extends Controller{
         $this->hinhAnh = $this->model("AdminQuanLyHinhAnhModel");
         $this->mausac = $this->model("AdminQuanLyMauSacModel");
         $this->user = $this->model("HomeUserModel");
+        $this->donhang =$this->model("HomeDonHangModel");
     }
 
     function SayHi(){
@@ -141,7 +143,24 @@ class Home extends Controller{
     }
 
       function Show_HomeCart(){
-         $this->view("MasterPage1", [
+        if (isset($_SESSION['usernameUser-login'])) {
+            $iduser = $this->user->Check_emailAjax($_SESSION['usernameUser-login']);
+            // lay tat ca du lieu gio hang
+         
+            // call views
+             $this->view("MasterPage1", [
+            "page"=>"HomeCart",
+            "size"=> $this->size->get_Size(),
+            "mausac"=> $this->mausac->get_Mau(),
+            "chitietsanpham"=> $this ->chiTietSanPham->listAllChiTietSanPham(),
+            "hinhanh"=>$this ->hinhAnh->get_HinhAnh(),
+            "loaisanpham"=> $this ->loaiSanPham->listAllLoaiSanPham(),
+            "sanPham"=>$this ->sanPham->listAllSanPham(),
+            "allGiohang"=> $this->donhang->Giohang($iduser)
+        ]);
+
+        }else{ 
+            $this->view("MasterPage1", [
             "page"=>"HomeCart",
             "size"=> $this->size->get_Size(),
             "mausac"=> $this->mausac->get_Mau(),
@@ -150,8 +169,12 @@ class Home extends Controller{
             "loaisanpham"=> $this ->loaiSanPham->listAllLoaiSanPham(),
             "sanPham"=>$this ->sanPham->listAllSanPham()
         ]);
+        }
+        
 
     }
+
+
 //Show_ThanhToan/HomeThanhToan
       function Show_ThanhToan(){
          $this->view("MasterPage1", [
@@ -165,6 +188,7 @@ class Home extends Controller{
         ]);
 
     }
+
 
 
    

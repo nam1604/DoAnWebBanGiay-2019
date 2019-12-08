@@ -1,6 +1,10 @@
 
     <!-- home car -->
 
+<?php 
+  
+
+ ?>
     <div class="container">
         <div  class="container-homecar">
                 <div style="text-align: center;"><h3>Giỏ hàng</h3></div>
@@ -18,7 +22,7 @@
                    
                   </div >
                   <div class="container-homecar-giohang-soluong">
-                      so luong <input type="text" style="height: 20px; width: 40px;">
+                      số lượng <input type="text" style="height: 20px; width: 40px;" disabled>
                     
                   </div>
                   <div class="container-homecar-giohang-gia">

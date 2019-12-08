@@ -37,7 +37,7 @@
                     </ul>
                 </div>
             </div>
-            <form action="" method="POST" class="form-container-chitietsanpham">
+            <form action="./HomeDonHang/xuLyDonHang/<?php echo $chuyenJson_oneChieTietSanPham[0]['id_chitiet'] ?>/<?php echo $chuyenJson_oneChieTietSanPham[0]['gia_sp'] ?>" method="POST" class="form-container-chitietsanpham">
                 <div class="container-chitietsanpham">
                     <h2 class="container-chitietsanpham__tensp"><?php echo $chuyenJson_oneChieTietSanPham[0]['tensp'] ?></h2>
                     <div class="container-chitietsanpham-maspAndTrangthai" style="padding-right: 25px;">
@@ -123,7 +123,7 @@
                         <input type="submit" name="themgiohang" value="Them vao gio hang" class="container-chitietsanpham-themGioHang__submit">
                     </div>
                     <div class="container-chitietsanpham-thanhToan">
-                        <input type="submit" name="" id="thanhtoan" value="thanh toan" class="container-chitietsanpham-thanhToan__submit">
+                        <input type="submit" name="thanhtoan" value="thanh toan" class="container-chitietsanpham-thanhToan__submit">
                     </div>
                 </div>
             </form>
