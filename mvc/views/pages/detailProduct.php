@@ -37,7 +37,7 @@
                     </ul>
                 </div>
             </div>
-            <form action="./HomeDonHang/xuLyDonHang/<?php echo $chuyenJson_oneChieTietSanPham[0]['id_chitiet'] ?>/<?php echo $chuyenJson_oneChieTietSanPham[0]['gia_sp'] ?>" method="POST" class="form-container-chitietsanpham">
+            <form action="./HomeDonHang/xuLyDonHang/<?php echo $chuyenJson_oneChieTietSanPham[0]['id_chitiet'] ?>/<?php echo $chuyenJson_oneChieTietSanPham[0]['gia_sp'] ?>/<?php echo $chuyenJson_oneChieTietSanPham[0]['tensp'] ?>" method="POST" class="form-container-chitietsanpham">
                 <div class="container-chitietsanpham">
                     <h2 class="container-chitietsanpham__tensp"><?php echo $chuyenJson_oneChieTietSanPham[0]['tensp'] ?></h2>
                     <div class="container-chitietsanpham-maspAndTrangthai" style="padding-right: 25px;">

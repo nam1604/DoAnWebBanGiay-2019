@@ -144,9 +144,11 @@ class Home extends Controller{
 
       function Show_HomeCart(){
         if (isset($_SESSION['usernameUser-login'])) {
-            $iduser = $this->user->Check_emailAjax($_SESSION['usernameUser-login']);
-            // lay tat ca du lieu gio hang
-         
+            // lay user id
+         $iduser = $this->user->get_AllUser($_SESSION['usernameUser-login']);
+            $chuyenjson_iduser = json_decode($iduser,true); 
+            $iduser= $chuyenjson_iduser[0]['id_user'];
+            // lay tat ca du lieu gio hang 
             // call views
              $this->view("MasterPage1", [
             "page"=>"HomeCart",

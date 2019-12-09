@@ -34,6 +34,8 @@ class HomeUserModel extends DB{
            return json_encode($kq);
     }
 
+    
+
     public function get_AllUser($email){
         $sql = "SELECT * FROM dbl_user WHERE email='$email'";
         $result = mysqli_query($this->con,$sql);
