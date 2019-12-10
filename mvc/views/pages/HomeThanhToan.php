@@ -1,7 +1,11 @@
 <?php 
+  $chuyenJson_chitietsp = json_decode($data['chitietsanpham'],true);
+    $chuyenJson_hinhanh = json_decode($data['hinhanh'],true);
+    $chuyenJson_sanPham = json_decode($data['sanPham'],true);
     if (isset($data['getone_donhang'])) {
-        # code...
         
+        $chuyenJson_getone_donhang = json_decode($data['getone_donhang'],true);
+
     }
  ?>
 
@@ -53,20 +57,30 @@
                 <div class="container-homecar-giohang-sp">
                     <div class="Showsanpham-items">
                       <a href="detailsProduct.html" class="Showsanpham-items-stylea">
-                        <div class="Showsanpham-items-stylea-picture">
-                          <img src="images/alphabouse.jpg" alt="" class="Showsanpham-items-stylea-picture__img">
+                         <div class="Showsanpham-items-stylea-picture">
+                            <img src="./uploads/<?php 
+                       for ($j=0; $j < count($chuyenJson_hinhanh); $j++) { 
+                    if ($chuyenJson_getone_donhang[0]['id_chitiet'] ==$chuyenJson_hinhanh[$j]['id_chitiet'] ) {
+                      echo $chuyenJson_hinhanh[$j]['hinhanh'];
+                      break;
+                    }
+                  }
+                     ?>" alt="" class="Showsanpham-items-stylea-picture__img">
                         </div>
-                        <p class="Showsanpham-items-stylea__title">addiasasdasdasdsadsadsa aphabouseasasdsadasdasddsadsadddddddsadsadsdsadsads</p>
+                        <p class="Showsanpham-items-stylea__title"><?php echo  $chuyenJson_getone_donhang[0]['tensp']; ?></p>
                       
                       </a>
                     </div>
+                   
                   </div >
-                  <!-- thong tin sp thanh toan-->
-                  <div class="container-thanhtoan-right-thongtinspThanhtoan">
-                       <p> so luong:5</p>
-                        <p>tong tien:6000000</p>  
+                   <div class="container-thanhtoan-right-thongtinspThanhtoan">
+                       <p> Số lượng : <?php echo  $chuyenJson_getone_donhang[0]['soluong_sp']; ?></p>
+                        <p>Tổng tiền :  <?php echo  $chuyenJson_getone_donhang[0]['tongtien_dh']; ?> VNĐ</p>  
 
                   </div>
+                  </div >
+                  <!-- thong tin sp thanh toan-->
+                 
 
 
             </div>
