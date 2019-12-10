@@ -149,7 +149,7 @@ class HomeDonHang extends Controller{
 
         if (isset($_SESSION['usernameUser-login'])) {
             
-                echo "da vao toitrang thanh toan  thanh toan";
+                
                          $this->view("MasterPage1", [
                 "page"=>"HomeThanhToan",
                 "size"=> $this->size->get_Size(),
@@ -177,6 +177,50 @@ class HomeDonHang extends Controller{
         }
 
     }
+
+    function ThucHien_ThanhToan_DonHang($idDonhang){
+
+        if (isset($_SESSION['usernameUser-login'])) {
+                // luu thong tin vao dbl thanh toan
+                if (isset($_POST['thuchienthanhtoan'])) {
+
+                    $hoten =$_POST['hoten'];
+                    $sdt =$_POST['sdt'];
+                    $diachi =$_POST['diachi'];
+                    $radio = $_POST['radio'];
+                   
+                }
+
+                
+
+                //call views
+                 $this->view("MasterPage1", [
+                "page"=>"showAllProduct",
+                "size"=> $this->size->get_Size(),
+                "mausac"=> $this->mausac->get_Mau(),
+                "chitietsanpham"=> $this ->chiTietSanPham->listAllChiTietSanPham(),
+                "hinhanh"=>$this ->hinhAnh->get_HinhAnh(),
+                "loaisanpham"=> $this ->loaiSanPham->listAllLoaiSanPham(),
+                "sanPham"=>$this ->sanPham->listAllSanPham()
+            ]);
+             
+
+        }else{
+           
+               $this->view("MasterPage1", [
+                "page"=>"showAllProduct",
+                "size"=> $this->size->get_Size(),
+                "mausac"=> $this->mausac->get_Mau(),
+                "chitietsanpham"=> $this ->chiTietSanPham->listAllChiTietSanPham(),
+                "hinhanh"=>$this ->hinhAnh->get_HinhAnh(),
+                "loaisanpham"=> $this ->loaiSanPham->listAllLoaiSanPham(),
+                "sanPham"=>$this ->sanPham->listAllSanPham()
+            ]);
+        }
+
+    }
+
+
 
 
 }

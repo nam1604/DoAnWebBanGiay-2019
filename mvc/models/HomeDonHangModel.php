@@ -37,6 +37,7 @@ class HomeDonHangModel extends DB{
     }
 
 
+    //  thanh toan don hang
 
 
  }

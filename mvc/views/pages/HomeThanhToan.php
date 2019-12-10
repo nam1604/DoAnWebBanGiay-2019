@@ -16,7 +16,7 @@
             <div class="container-thanhtoan-left" >
                 <div class="container-form">
                     <div style="width: 100%; text-align:center;"><h3>Trang thanh toán</h3></div>
-                    <form action="" method="POST" class="container-form-formdangky">
+                    <form action="./HomeDonHang/ThucHien_ThanhToan_DonHang/<?php echo  $chuyenJson_getone_donhang[0]['id_donhang']; ?>" method="POST" class="container-form-formdangky">
                         <label for=""></label>Họ tên người nhận</label>
                         <input name="hoten" type="text">
         
@@ -27,12 +27,12 @@
                         <input name="email" type="email" disabled>
         
                         <label for="">Địa chỉ</label>
-                        <input name="password" type="text">
+                        <input name="diachi" type="text">
         
                       
                             <h3>Chọn hình thức thanh toán</h3>
                             <label class="container1">Visa / Mastercart
-                            <input type="radio" checked="checked" name="radio">
+                            <input type="radio"  name="radio">
                             <span class="checkmark"></span>
                             </label>
                             <label class="container1">Chuyển khoản ATM có Inernet banking
@@ -47,7 +47,7 @@
         
                       
                         <div class="container-form-formdangky-items">
-                            <input class="container-form-formdangky-items_input" value="Thanh toán" type="submit" style=" width: auto;">
+                            <input class="container-form-formdangky-items_input" name="thuchienthanhtoan" value="Thanh toán" type="submit" style=" width: auto;">
                             
                         </div>
                     </form>
