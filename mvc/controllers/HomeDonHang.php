@@ -49,25 +49,39 @@ class HomeDonHang extends Controller{
 			
 				$this->donhang->insert_Donhang($iduser,$idChitietsp,$soluongsp,$tongtien,$trangthai_dh,$tensp);
 				echo "da vao toi gio hang";
+                         $this->view("MasterPage1", [
+                "page"=>"HomeCart",
+                "size"=> $this->size->get_Size(),
+                "mausac"=> $this->mausac->get_Mau(),
+                "chitietsanpham"=> $this ->chiTietSanPham->listAllChiTietSanPham(),
+                "hinhanh"=>$this ->hinhAnh->get_HinhAnh(),
+                "loaisanpham"=> $this ->loaiSanPham->listAllLoaiSanPham(),
+                "sanPham"=>$this ->sanPham->listAllSanPham(),
+                 "allGiohang"=> $this->donhang->Giohang($iduser)
+            ]);
 
 	    		
-	    	}elseif (isset($_POST['thanhtoan'])){
+	    	}elseif (isset($_POST['thanh
+                toan'])){
 	    		$trangthai_dh=1;
 	    		$this->donhang->insert_Donhang($iduser,$idChitietsp,$soluongsp,$tongtien,$trangthai_dh,$tensp);
+
 	    		echo "da vao toi thanh toan";
+                
+                         $this->view("MasterPage1", [
+                "page"=>"HomeThanhToan",
+                "size"=> $this->size->get_Size(),
+                "mausac"=> $this->mausac->get_Mau(),
+                "chitietsanpham"=> $this ->chiTietSanPham->listAllChiTietSanPham(),
+                "hinhanh"=>$this ->hinhAnh->get_HinhAnh(),
+                "loaisanpham"=> $this ->loaiSanPham->listAllLoaiSanPham(),
+                "sanPham"=>$this ->sanPham->listAllSanPham()
+            ]);
 
 	    	}
 
 
-	         $this->view("MasterPage1", [
-	            "page"=>"showAllProduct",
-	            "size"=> $this->size->get_Size(),
-	            "mausac"=> $this->mausac->get_Mau(),
-	            "chitietsanpham"=> $this ->chiTietSanPham->listAllChiTietSanPham(),
-	            "hinhanh"=>$this ->hinhAnh->get_HinhAnh(),
-	            "loaisanpham"=> $this ->loaiSanPham->listAllLoaiSanPham(),
-	            "sanPham"=>$this ->sanPham->listAllSanPham()
-	        ]);
+	
 		}else{
 			echo "them that bai";
 			   $this->view("MasterPage1", [
@@ -115,6 +129,38 @@ class HomeDonHang extends Controller{
         ]);
         }
     	
+    }
+
+    function ThanhToan_DonHang($idDonhang){
+       $a = $this->donhang->Getone_DonHang($idDonhang);
+
+        if (isset($_SESSION['usernameUser-login'])) {
+            
+                echo "da vao toitrang thanh toan  thanh toan";
+                         $this->view("MasterPage1", [
+                "page"=>"HomeThanhToan",
+                "size"=> $this->size->get_Size(),
+                "mausac"=> $this->mausac->get_Mau(),
+                "chitietsanpham"=> $this ->chiTietSanPham->listAllChiTietSanPham(),
+                "hinhanh"=>$this ->hinhAnh->get_HinhAnh(),
+                "loaisanpham"=> $this ->loaiSanPham->listAllLoaiSanPham(),
+                "sanPham"=>$this ->sanPham->listAllSanPham(),
+                ]);
+             
+
+        }else{
+           
+               $this->view("MasterPage1", [
+                "page"=>"showAllProduct",
+                "size"=> $this->size->get_Size(),
+                "mausac"=> $this->mausac->get_Mau(),
+                "chitietsanpham"=> $this ->chiTietSanPham->listAllChiTietSanPham(),
+                "hinhanh"=>$this ->hinhAnh->get_HinhAnh(),
+                "loaisanpham"=> $this ->loaiSanPham->listAllLoaiSanPham(),
+                "sanPham"=>$this ->sanPham->listAllSanPham()
+            ]);
+        }
+
     }
 
 

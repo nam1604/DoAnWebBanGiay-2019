@@ -49,7 +49,7 @@
                   <div class="container-homecar-giohang-chucnang">
                         <a href="./HomeDonHang/XoaDonHang/<?php echo $chuyenJson_dataGiohang[$t]['id_donhang']; ?>"><input type="submit" value="xoa" style="width: 50px;background: red; border: 1px solid #eee; border-radius: 5px; cursor: pointer;"></a>
                      
-                      <a href=""><input type="button" value="thanh toan" style="padding: 5px; background: green; border: 1px solid #eee; border-radius: 5px; cursor: pointer;"></a>
+                      <a href="./HomeDonHang/ThanhToan_DonHang/<?php  echo  $chuyenJson_dataGiohang[$t]['id_donhang']; ?>"><input type="button" value="thanh toan" style="padding: 5px; background: green; border: 1px solid #eee; border-radius: 5px; cursor: pointer;"></a>
                   </div>
                 </div>
                 <?php 

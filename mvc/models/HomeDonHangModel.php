@@ -12,7 +12,7 @@ class HomeDonHangModel extends DB{
     }
 // dang lam toi day
     function Giohang($iduser){
-      $qr = "SELECT * FROM dbl_hoadon JOIN dbl_chitiet_sp ON dbl_hoadon.id_chitiet = dbl_chitiet_sp.id_chitiet JOIN dbl_user ON dbl_hoadon.id_user = dbl_user.id_user WHERE dbl_hoadon.id_chitiet = dbl_chitiet_sp.id_chitiet AND dbl_hoadon.id_user= '$iduser' AND dbl_hoadon.id_user = dbl_user.id_user";
+      $qr = "SELECT * FROM dbl_hoadon JOIN dbl_chitiet_sp ON dbl_hoadon.id_chitiet = dbl_chitiet_sp.id_chitiet JOIN dbl_user ON dbl_hoadon.id_user = dbl_user.id_user WHERE dbl_hoadon.id_chitiet = dbl_chitiet_sp.id_chitiet AND dbl_hoadon.id_user= '$iduser' AND dbl_hoadon.id_user = dbl_user.id_user AND dbl_hoadon.trangthai_dh = 0";
        $result = mysqli_query($this->con,$qr);
        $mang = array();
        while($row = mysqli_fetch_array($result)){
@@ -25,5 +25,19 @@ class HomeDonHangModel extends DB{
         $sql = "DELETE FROM dbl_hoadon WHERE id_donhang = '$idonhang'";
         $result = mysqli_query($this->con,$sql);
     }
+
+    function Getone_DonHang($id_donhang){
+       $qr = "SELECT * FROM dbl_hoadon JOIN dbl_chitiet_sp ON dbl_hoadon.id_chitiet = dbl_chitiet_sp.id_chitiet JOIN dbl_user ON dbl_hoadon.id_user = dbl_user.id_user WHERE dbl_hoadon.id_chitiet = dbl_chitiet_sp.id_chitiet AND dbl_hoadon.id_user = dbl_user.id_user AND dbl_hoadon.trangthai_dh = 0 AND dbl_hoadon.id_donhang='$id_donhang'";
+       $result = mysqli_query($this->con,$qr);
+       $mang = array();
+       while($row = mysqli_fetch_array($result)){
+           $mang[]=$row;
+       }
+       return json_encode($mang);
+    }
+
+
+
+
  }
 ?> 
