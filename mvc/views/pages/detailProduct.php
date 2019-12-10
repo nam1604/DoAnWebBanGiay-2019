@@ -4,8 +4,15 @@
     $chuyenJson_listAllChiTietSanPham_theosanpham = json_decode($data['listAllChiTietSanPham_theosanpham'],true);
     $chuyenJson_mausac = json_decode($data['mausac'],true);
     $chuyenJson_size = json_decode($data['size'],true);
+    if (isset($data['thongbaoGiohang'])) {
+        
+       
+    
  ?>
-
+        <script>
+         alert("Đã thêm sản phẩm vào giỏ hàng");
+        </script>
+    <?php } ?>
 
     <div class="container">
         <div class="container-hinhanhAndChitiet">
@@ -37,7 +44,7 @@
                     </ul>
                 </div>
             </div>
-            <form action="./HomeDonHang/xuLyDonHang/<?php echo $chuyenJson_oneChieTietSanPham[0]['id_chitiet'] ?>/<?php echo $chuyenJson_oneChieTietSanPham[0]['gia_sp'] ?>/<?php echo $chuyenJson_oneChieTietSanPham[0]['tensp'] ?>" method="POST" class="form-container-chitietsanpham">
+            <form action="./HomeDonHang/xuLyDonHang/<?php echo $chuyenJson_oneChieTietSanPham[0]['id_chitiet'] ?>/<?php echo $chuyenJson_oneChieTietSanPham[0]['gia_sp'] ?>/<?php echo $chuyenJson_oneChieTietSanPham[0]['tensp'] ?>/<?php echo $chuyenJson_oneChieTietSanPham[0]['id_sp'] ?>" method="POST" class="form-container-chitietsanpham">
                 <div class="container-chitietsanpham">
                     <h2 class="container-chitietsanpham__tensp"><?php echo $chuyenJson_oneChieTietSanPham[0]['tensp'] ?></h2>
                     <div class="container-chitietsanpham-maspAndTrangthai" style="padding-right: 25px;">
@@ -80,7 +87,8 @@
                     </div>
                     <hr style=" border-top: 1px solid #aaaa; margin: 10px 0; background: #aaaa;">
                     <div class="container-chitietsanpham-sizeAndSoluong">
-                        <div class="container-chitietsanpham-size">
+                        <div class="container-chitietsanpham-size" style="display: flex;
+    align-items: center;" >
                             <label for="">Size: </label>
                             <select  style="width: 70%;border: 1px solid #aaaa; border-radius: 10px;">  <?php 
                             for ($i=0; $i < count($chuyenJson_size) ; $i++) { 
@@ -100,7 +108,8 @@
                          ?>        
                             </select>
                         </div>
-                        <div class="container-chitietsanpham-soluong">
+                        <div class="container-chitietsanpham-soluong" style="display: flex;
+    align-items: center;">
                             <label for="">Số lượng: </label><!-- name="soluong" -->
                             <input name="soluong"  type="text" style="border: 1px solid #eee; border-radius: 10px; text-align: center;">
                         </div>

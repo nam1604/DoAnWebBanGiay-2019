@@ -1,4 +1,9 @@
-
+<?php 
+    if (isset($data['getone_donhang'])) {
+        # code...
+        
+    }
+ ?>
 
     <!-- show san pham -->
 
