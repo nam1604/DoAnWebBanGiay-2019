@@ -37,7 +37,28 @@ class HomeDonHangModel extends DB{
     }
 
 
+
     //  thanh toan don hang
+
+    function Insert_ThanhToan($tennguoinhan,$sdtnguoinhan,$diachinguoinhan,$hinhthucthanhtoan,$id_donhang,$xacnhan_thanhtoan){
+
+       $sql="INSERT INTO dbl_thanhtoan(tennguoinhan,sdtnguoinhan,diachinguoinhan,hinhthucthanhtoan,id_donhang,xacnhan_thanhtoan) VALUES('$tennguoinhan','$sdtnguoinhan','$diachinguoinhan','$hinhthucthanhtoan','$id_donhang','$xacnhan_thanhtoan')";
+       $result = mysqli_query($this->con,$sql);
+    }
+
+    function Update_trangthaithanhtoan($idonhang){
+        $sql =  "UPDATE dbl_thanhtoan SET xacnhan_thanhtoan= 1 WHERE id_donhang='$idonhang'";
+       $result = mysqli_query($this->con,$sql);
+    }
+
+    // van chuyen
+
+     function Insert_Vanchuyen($idonhang){
+
+       $sql="INSERT INTO dbl_vanchuyen(id_donhang,trangthai_vanchuyen) VALUES('$idonhang','0')";
+       $result = mysqli_query($this->con,$sql);
+    }
+
 
 
  }

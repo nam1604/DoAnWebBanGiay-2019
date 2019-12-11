@@ -10,7 +10,7 @@
           for ($k=0; $k < count($chuyenJson_sanPham) ; $k++) { 
               for ($i=0; $i < count($chuyenJson_chitietsp) ; $i++){
               if ($chuyenJson_sanPham[$k]['id_sp'] == $chuyenJson_chitietsp[$i]['id_sp']) {
-                # code...
+                
          ?>
                 <div class="Showsanpham-items">
                     <a href="./Home/ShowSanPham_details/<?php echo $chuyenJson_chitietsp[$i]['id_chitiet'] ?>/<?php echo $chuyenJson_chitietsp[$i]['id_sp'] ?>" class="Showsanpham-items-stylea">

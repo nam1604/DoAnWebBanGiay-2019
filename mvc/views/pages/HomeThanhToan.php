@@ -24,7 +24,7 @@
                         <input name="sdt" type="text">
         
                         <label for="">Email</label>
-                        <input name="email" type="email" disabled>
+                        <input name="email" type="email" value="<?php echo $_SESSION['usernameUser-login'] ?>" disabled>
         
                         <label for="">Địa chỉ</label>
                         <input name="diachi" type="text">
@@ -32,15 +32,15 @@
                       
                             <h3>Chọn hình thức thanh toán</h3>
                             <label class="container1">Visa / Mastercart
-                            <input type="radio"  name="radio">
+                            <input type="radio" value="0"  name="radio">
                             <span class="checkmark"></span>
                             </label>
                             <label class="container1">Chuyển khoản ATM có Inernet banking
-                            <input type="radio" name="radio">
+                            <input type="radio" value="1" name="radio">
                             <span class="checkmark"></span>
                             </label>
                             <label class="container1">Ship Code
-                            <input type="radio" name="radio">
+                            <input type="radio" value="2" name="radio">
                             <span class="checkmark"></span>
                             </label>
                          

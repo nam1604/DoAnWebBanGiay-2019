@@ -188,6 +188,22 @@ class HomeDonHang extends Controller{
                     $sdt =$_POST['sdt'];
                     $diachi =$_POST['diachi'];
                     $radio = $_POST['radio'];
+
+                    $xacnhanthanhtoan =0;
+
+                $this->donhang->Insert_ThanhToan($hoten,$sdt,$diachi,$radio,$idDonhang,$xacnhanthanhtoan);
+
+                // gui mail xac nhan don hang
+                $email= $_SESSION['usernameUser-login'];
+
+                    $subjects = "Adidas store xac nhan Thanh Toan Don Hang !!";
+                    $body="Cam on ban da thanh toan online tren Adidas store cua chung toi. Xin vui lòng xác nhận thanh toán bằng cách nhấp vào link để xác nhan thanh toán đơn hàng .";
+                    $link="HomeDonHang/XacNhanThanhToan/".$idDonhang;
+
+           
+
+            $this->Mailer($hoten,$email,$subjects,$body,$link);
+
                    
                 }
 
@@ -217,6 +233,26 @@ class HomeDonHang extends Controller{
                 "sanPham"=>$this ->sanPham->listAllSanPham()
             ]);
         }
+
+    }
+
+    function XacNhanThanhToan($idDonhang){
+      $this->donhang->Update_trangthaithanhtoan($idDonhang);
+      $this->donhang->Insert_Vanchuyen($idDonhang);
+
+
+      //call views
+       $this->view("MasterPage1", [
+                "page"=>"showAllProduct",
+                "size"=> $this->size->get_Size(),
+                "mausac"=> $this->mausac->get_Mau(),
+                "chitietsanpham"=> $this ->chiTietSanPham->listAllChiTietSanPham(),
+                "hinhanh"=>$this ->hinhAnh->get_HinhAnh(),
+                "loaisanpham"=> $this ->loaiSanPham->listAllLoaiSanPham(),
+                "sanPham"=>$this ->sanPham->listAllSanPham(),
+                "thongbao_thanhtoanThanhcong"=>'Đã xác nhận đơn hàng thành công'
+            ]);
+
 
     }
 
