@@ -8,6 +8,7 @@ class HomePersonal extends Controller{
     public $size;
     public $mausac;
     public $user;
+    public $donhang;
 
     public function __construct(){
         //model
@@ -18,6 +19,7 @@ class HomePersonal extends Controller{
         $this->hinhAnh = $this->model("AdminQuanLyHinhAnhModel");
         $this->mausac = $this->model("AdminQuanLyMauSacModel");
         $this->user = $this->model("HomeUserModel");
+        $this->donhang = $this->model('AdminQuanLyDonHangModel');
     }
 
   
@@ -34,6 +36,7 @@ class HomePersonal extends Controller{
                 "loaisanpham"=> $this ->loaiSanPham->listAllLoaiSanPham(),
                 "sanPham"=>$this ->sanPham->listAllSanPham(),
                 "getAllUser"=>$this->user->get_AllUser($_SESSION['usernameUser-login']),
+
             ]);
         }else{
                  $this->view("MasterPage1", [
@@ -80,6 +83,8 @@ class HomePersonal extends Controller{
     }
 
     function Show_quanlydonhang(){
+
+
         if (isset($_SESSION['usernameUser-login'])) {
                 $this->view("MasterPage1", [
                 "page"=>"ShowpageQuanlydonhang",
@@ -90,6 +95,7 @@ class HomePersonal extends Controller{
                 "loaisanpham"=> $this ->loaiSanPham->listAllLoaiSanPham(),
                 "sanPham"=>$this ->sanPham->listAllSanPham(),
                 "getAllUser"=>$this->user->get_AllUser($_SESSION['usernameUser-login']),
+                "alldonhang"=>$this->donhang->getAll_Donhang_theoUser($_SESSION['usernameUser-login'])
             ]);
         }else{
                    $this->view("MasterPage1", [
