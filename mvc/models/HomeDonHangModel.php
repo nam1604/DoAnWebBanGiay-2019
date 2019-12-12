@@ -10,7 +10,7 @@ class HomeDonHangModel extends DB{
       // $sql ="SELECT * FROM dbl_hoadon JOIN dbl_chitiet_sp ON dbl_hoadon.id_chitiet = dbl_chitiet_sp.id_chitiet JOIN dbl_user ON dbl_hoadon.id_user = dbl_user.id_user WHERE dbl_hoadon.id_chitiet = dbl_chitiet_sp.id_chitiet AND dbl_hoadon.id_user= '$iduser'";
      
     }
-// dang lam toi day
+
     function Giohang($iduser){
       $qr = "SELECT * FROM dbl_hoadon JOIN dbl_chitiet_sp ON dbl_hoadon.id_chitiet = dbl_chitiet_sp.id_chitiet JOIN dbl_user ON dbl_hoadon.id_user = dbl_user.id_user WHERE dbl_hoadon.id_chitiet = dbl_chitiet_sp.id_chitiet AND dbl_hoadon.id_user= '$iduser' AND dbl_hoadon.id_user = dbl_user.id_user AND dbl_hoadon.trangthai_dh = 0";
        $result = mysqli_query($this->con,$qr);
@@ -46,10 +46,17 @@ class HomeDonHangModel extends DB{
        $result = mysqli_query($this->con,$sql);
     }
 
-    function Update_trangthaithanhtoan($idonhang){
+    function Update_trangthaiHoaDon($idonhang){
+        $sql =  "UPDATE dbl_hoadon SET trangthai_dh= 1 WHERE id_donhang='$idonhang'";
+       $result = mysqli_query($this->con,$sql);
+    }
+
+      function Update_trangthaithanhtoan($idonhang){
         $sql =  "UPDATE dbl_thanhtoan SET xacnhan_thanhtoan= 1 WHERE id_donhang='$idonhang'";
        $result = mysqli_query($this->con,$sql);
     }
+
+
 
     // van chuyen
 

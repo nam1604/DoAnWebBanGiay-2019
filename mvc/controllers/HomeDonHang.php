@@ -189,7 +189,8 @@ class HomeDonHang extends Controller{
                     $diachi =$_POST['diachi'];
                     $radio = $_POST['radio'];
 
-                    $xacnhanthanhtoan =0;
+                    $xacnhanthanhtoan =0; 
+
 
                 $this->donhang->Insert_ThanhToan($hoten,$sdt,$diachi,$radio,$idDonhang,$xacnhanthanhtoan);
 
@@ -239,7 +240,7 @@ class HomeDonHang extends Controller{
     function XacNhanThanhToan($idDonhang){
       $this->donhang->Update_trangthaithanhtoan($idDonhang);
       $this->donhang->Insert_Vanchuyen($idDonhang);
-
+        $this->donhang->Update_trangthaiHoaDon($idDonhang);
 
       //call views
        $this->view("MasterPage1", [

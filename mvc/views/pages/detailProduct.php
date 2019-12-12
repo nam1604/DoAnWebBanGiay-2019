@@ -111,7 +111,7 @@
                         <div class="container-chitietsanpham-soluong" style="display: flex;
     align-items: center;">
                             <label for="">Số lượng: </label><!-- name="soluong" -->
-                            <input name="soluong"  type="text" style="border: 1px solid #eee; border-radius: 10px; text-align: center;">
+                            <input name="soluong" value="1"  type="text" style="border: 1px solid #eee; border-radius: 10px; text-align: center;">
                         </div>
                     </div>
                     <div class="container-chitietsanpham-quydinhdoitra">
