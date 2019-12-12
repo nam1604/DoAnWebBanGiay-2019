@@ -188,6 +188,15 @@ class HomeDonHang extends Controller{
                     $sdt =$_POST['sdt'];
                     $diachi =$_POST['diachi'];
                     $radio = $_POST['radio'];
+                    $hinhthucthanhtoan;
+                    if ($radio==0) {
+                        $hinhthucthanhtoan = "Visa/Mastercart";
+                    }elseif ($radio==1) {
+                         $hinhthucthanhtoan = "Chuyển khoản ATM";
+                    }else{
+                         $hinhthucthanhtoan = "Ship Code";
+                    }
+
 
                     $xacnhanthanhtoan =0; 
 
@@ -198,7 +207,7 @@ class HomeDonHang extends Controller{
                 $email= $_SESSION['usernameUser-login'];
 
                     $subjects = "Adidas store xac nhan Thanh Toan Don Hang !!";
-                    $body="Cam on ban da thanh toan online tren Adidas store cua chung toi. Xin vui lòng xác nhận thanh toán bằng cách nhấp vào link để xác nhan thanh toán đơn hàng .";
+                    $body="Cam on ban da thanh toan online tren Adidas store cua chung toi."."Họ tên:".$hoten."---Số điện thoại :".$sdt."--Địa chỉ giao hàng".$diachi."Hình thức thanh toán".$hinhthucthanhtoan." Xin vui lòng xác nhận thanh toán bằng cách nhấp vào link để xác nhan thanh toán đơn hàng .";
                     $link="HomeDonHang/XacNhanThanhToan/".$idDonhang;
 
            
