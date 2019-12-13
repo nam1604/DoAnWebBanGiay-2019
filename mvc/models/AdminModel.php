@@ -2,12 +2,14 @@
     class AdminModel extends DB{
          public function get_Admin($username,$password){
 	       $sql = "SELECT * FROM dbl_admin WHERE username_admin='$username' AND password_admin='$password'";
-	       $result = mysqli_query($this->con,$sql);
+	       $rows = mysqli_query($this->con,$sql);
 	       $mang = array();
-	       while($row = mysqli_fetch_array($result)){
-	           $mang[]=$row;
-	       }
-	       return json_encode($mang);
+	       $kq = 0;
+           if(mysqli_num_rows($rows) > 0){
+              $kq= 1;
+           }
+           return json_encode($kq);
 	    }
     }
+   
 ?>

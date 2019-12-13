@@ -16,12 +16,14 @@
 		if ($data['page']=='PageAdminDangnhap') {
 			require_once("./mvc/views/admin/".$data["page"].".php");
 		}else{
-			if (!isset($_SESSION['usernameAdmin-login'])) {
-				require_once("./mvc/views/admin/".'PageAdminDangnhap'.".php");
-			}else{ 
-				require_once('block/MenuAdmin.php');
+			if (isset($_SESSION['usernameAdmin-login'])) {
+				// require_once("./mvc/views/admin/".'PageAdminDangnhap'.".php");
+					require_once('block/MenuAdmin.php');
 				 require_once("./mvc/views/admin/".$data["page"].".php");
-				}	
+				
+			}else{ 
+				require_once("./mvc/views/admin/".'PageAdminDangnhap'.".php");
+			}
 		}
 	
 	 ?>

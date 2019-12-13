@@ -36,8 +36,9 @@ class Admin extends Controller{
 
             $ketqua = $this->admin ->get_Admin($username,$password);
           
-            if ($ketqua != NULL) {
+            if ($ketqua == 1) {
                 $_SESSION['usernameAdmin-login']=$username;
+                echo  $_SESSION['usernameAdmin-login'];
                   $this-> Show();
 
             }else{
