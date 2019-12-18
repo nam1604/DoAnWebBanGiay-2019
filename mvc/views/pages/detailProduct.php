@@ -129,10 +129,10 @@
                         </details>
                     </div>
                     <div class="container-chitietsanpham-themGioHang">
-                        <input type="submit" name="themgiohang" value="Them vao gio hang" class="container-chitietsanpham-themGioHang__submit">
+                        <a href="./SessionQuanlyGioHang/Muahang/<?php echo $chuyenJson_oneChieTietSanPham[0]['id_chitiet'] ?>/<?php echo $chuyenJson_oneChieTietSanPham[0]['gia_sp'] ?>/<?php echo $chuyenJson_oneChieTietSanPham[0]['tensp'] ?>/<?php echo $chuyenJson_oneChieTietSanPham[0]['id_sp'] ?>"><input type="button" name="themgiohang" value="Thêm giỏ hàng" class="container-chitietsanpham-themGioHang__submit"></a>
                     </div>
                     <div class="container-chitietsanpham-thanhToan">
-                        <input type="submit" name="thanhtoan" value="thanh toan" class="container-chitietsanpham-thanhToan__submit">
+                        <input type="submit" name="thanhtoan" value="Đặt hàng" class="container-chitietsanpham-thanhToan__submit">
                     </div>
                 </div>
             </form>

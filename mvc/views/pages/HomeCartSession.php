@@ -48,9 +48,9 @@
                     <h3>Gia</h3> <p><?php  $tong= $value['gia']*$value['soluongmua']; echo $tong; ?> VND</p>
                   </div>
                   <div class="container-homecar-giohang-chucnang">
-                        <a href=""><input type="submit" value="xoa" style="width: 50px;background: red; border: 1px solid #eee; border-radius: 5px; cursor: pointer;"></a>
+                        <a href="./SessionQuanlyGioHang/xoa_itemsgiohang/<?php echo $value['idChitiet'] ?>"><input type="submit" value="xoa" style="width: 50px;background: red; border: 1px solid #eee; border-radius: 5px; cursor: pointer;"></a>
                      
-                      <a href=""><input type="button" value="thanh toan" style="padding: 5px; background: green; border: 1px solid #eee; border-radius: 5px; cursor: pointer;"></a>
+                      <a href="./SessionQuanlyGioHang/thanhtoan/<?php echo $value['idChitiet'] ?>"><input type="button" value="thanh toan" style="padding: 5px; background: green; border: 1px solid #eee; border-radius: 5px; cursor: pointer;"></a>
                   </div>
                 </div>
                 <?php 

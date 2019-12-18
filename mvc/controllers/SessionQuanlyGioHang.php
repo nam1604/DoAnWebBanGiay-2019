@@ -86,6 +86,53 @@ class SessionQuanlyGioHang extends Controller{
 
     }
 
+    public function xoa_itemsgiohang($idchitiet){
+
+        unset($_SESSION['giohang'][$idchitiet]);
+
+            $this->view("MasterPage1", [
+                "page"=>"HomeCartSession",
+                "size"=> $this->size->get_Size(),
+                "mausac"=> $this->mausac->get_Mau(),
+                "chitietsanpham"=> $this ->chiTietSanPham->listAllChiTietSanPham(),
+                "hinhanh"=>$this ->hinhAnh->get_HinhAnh(),
+                "loaisanpham"=> $this ->loaiSanPham->listAllLoaiSanPham(),
+                "sanPham"=>$this ->sanPham->listAllSanPham(),
+                
+            ]);
+    }
+
+    public function thanhtoan($idChitiet){
+        if (isset($_SESSION['usernameUser-login'])) {
+            
+                
+                         $this->view("MasterPage1", [
+                "page"=>"Homethanhtoan-sesion",
+                "size"=> $this->size->get_Size(),
+                "mausac"=> $this->mausac->get_Mau(),
+                "chitietsanpham"=> $this ->chiTietSanPham->listAllChiTietSanPham(),
+                "hinhanh"=>$this ->hinhAnh->get_HinhAnh(),
+                "loaisanpham"=> $this ->loaiSanPham->listAllLoaiSanPham(),
+                "sanPham"=>$this ->sanPham->listAllSanPham(),
+                "donhang_sp"=>$_SESSION['giohang'][$idChitiet]
+
+                ]);
+             
+
+        }else{
+           
+               $this->view("MasterPage1", [
+                "page"=>"ShopageLogin",
+                "size"=> $this->size->get_Size(),
+                "mausac"=> $this->mausac->get_Mau(),
+                "chitietsanpham"=> $this ->chiTietSanPham->listAllChiTietSanPham(),
+                "hinhanh"=>$this ->hinhAnh->get_HinhAnh(),
+                "loaisanpham"=> $this ->loaiSanPham->listAllLoaiSanPham(),
+                "sanPham"=>$this ->sanPham->listAllSanPham()
+            ]);
+        }
+    }
+
    
 
 
