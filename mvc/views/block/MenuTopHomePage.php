@@ -6,7 +6,7 @@
               <li><a href="./Home">Home</a></li>
               <li><a href="#">About</a></li>
               
-              <li class="top-nav-container-menu__flex"><a href="./Home/Show_HomeCart"><i class="fas fa-cart-plus"></i>
+              <li class="top-nav-container-menu__flex"><a href="./SessionQuanlyGioHang/giohang"><i class="fas fa-cart-plus"></i>
                 Cart</a></li>
               <?php 
                 if (isset($_SESSION['usernameUser-login'])) {

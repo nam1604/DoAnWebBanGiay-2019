@@ -33,7 +33,7 @@
                     </a>
                        <div style="display: flex; justify-content: space-around;">
                          <a href="./Home/ShowSanPham_details/<?php echo $chuyenJson_chitietsp[$i]['id_chitiet'] ?>/<?php echo $chuyenJson_chitietsp[$i]['id_sp'] ?>" style="border: 0.5px solid green;background: green; border-radius: 5px;"><button style="background: green; width: 100%;">Xem chi tiết</button></a> 
-                         <a href="" style="border: 0.5px solid green;background: green;border-radius: 5px;"><button  style="background: pink;">Thêm giỏ hàng</button></a>
+                         <a href="./SessionQuanlyGioHang/Muahang/<?php echo $chuyenJson_chitietsp[$i]['id_chitiet'] ?>/<?php echo $chuyenJson_chitietsp[$i]['gia_sp'] ?>/<?php echo $chuyenJson_chitietsp[$i]['tensp'] ?>/<?php echo $chuyenJson_chitietsp[$i]['id_sp'] ?>" style="border: 0.5px solid green;background: green;border-radius: 5px;"><button  style="background: pink;">Thêm giỏ hàng</button></a>
                        </div>
                 </div>
              
