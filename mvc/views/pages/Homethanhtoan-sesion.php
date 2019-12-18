@@ -19,7 +19,7 @@
             <div class="container-thanhtoan-left" >
                 <div class="container-form">
                     <div style="width: 100%; text-align:center;"><h3>Trang thanh toán</h3></div>
-                    <form action="" method="POST" class="container-form-formdangky">
+                    <form action="./SessionQuanlyGioHang/thuchien_thanhtoan/<?php echo $getdata['idChitiet']  ?>" method="POST" class="container-form-formdangky">
                         <label for=""></label>Họ tên người nhận</label>
                         <input name="hoten" type="text">
         

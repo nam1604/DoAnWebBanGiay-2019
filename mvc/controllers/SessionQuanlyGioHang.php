@@ -42,7 +42,7 @@ class SessionQuanlyGioHang extends Controller{
               $_SESSION['giohang'][$idChitiet]=$newproduct[$idChitiet];
             
         }else{
-            echo "co san pham trong gio";
+            
             if (array_key_exists($idChitiet,$_SESSION['giohang'])) {
                $_SESSION['giohang'][$idChitiet]['soluongmua'] += 1;
             }else{
@@ -66,6 +66,41 @@ class SessionQuanlyGioHang extends Controller{
             "loaisanpham"=> $this ->loaiSanPham->listAllLoaiSanPham(),
             "sanPham"=>$this ->sanPham->listAllSanPham()
         ]);
+
+
+    }
+    public function Dathang($idChitiet,$gia,$tenSP,$idSp){
+      
+
+        if(!isset($_SESSION['giohang']) || $_SESSION['giohang']== null){
+
+              $newproduct = array();
+            $newproduct[$idChitiet] = array(
+                "idChitiet"=>$idChitiet,
+                "gia"=>$gia,
+                "tenSP"=>$tenSP,
+                "$idSp"=>$idSp,
+                "soluongmua"=>1
+            );
+              $_SESSION['giohang'][$idChitiet]=$newproduct[$idChitiet];
+            
+        }else{
+            
+            if (array_key_exists($idChitiet,$_SESSION['giohang'])) {
+               $_SESSION['giohang'][$idChitiet]['soluongmua'] += 1;
+            }else{
+                   $newproduct = array();
+                    $newproduct[$idChitiet] = array(
+                        "idChitiet"=>$idChitiet,
+                        "gia"=>$gia,
+                        "tenSP"=>$tenSP,
+                        "$idSp"=>$idSp,
+                        "soluongmua"=>1
+                    );
+                    $_SESSION['giohang'][$idChitiet]=$newproduct[$idChitiet];
+            }
+        }
+         $this->giohang();
 
 
     }
@@ -130,6 +165,31 @@ class SessionQuanlyGioHang extends Controller{
                 "loaisanpham"=> $this ->loaiSanPham->listAllLoaiSanPham(),
                 "sanPham"=>$this ->sanPham->listAllSanPham()
             ]);
+        }
+    }
+
+    public function thuchien_thanhtoan($idchitiet){
+        // buoc nay se luu du lieu vao dbl_hoadon
+        
+            $idChitietsp = $idchitiet;
+            $soluongsp =$_SESSION['giohang'][$idchitiet];
+            $tongtien = $_SESSION['giohang'][$idchitiet]['gia'] * $_SESSION['giohang'][$idchitiet]['soluongmua'];
+            $tensp = $_SESSION['giohang'][$idchitiet]['tenSP'];
+            $trangthai_dh=0;
+            $diachi=$_POST['diachi'];
+            $sdt = $_POST['sdt'];
+            $hinhthuc = $_POST['radio'];
+            $xacnhan_donhang = 0;
+            $iduser = $this->user->get_AllUser($_SESSION['usernameUser-login']);
+
+            $chuyenjson_iduser = json_decode($iduser,true);
+            
+            $iduser= $chuyenjson_iduser[0]['id_user'];
+
+        if (isset($_SESSION['usernameUser-login'])){
+            $this->donhang->insert_Donhang1($iduser,$idChitietsp,$soluongsp,$tongtien,$trangthai_dh,$tensp,$sdt,$diachi,$hinhthuc,$xacnhan_donhang);
+
+           
         }
     }
 
