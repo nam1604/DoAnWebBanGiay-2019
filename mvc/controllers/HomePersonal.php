@@ -95,7 +95,7 @@ class HomePersonal extends Controller{
                 "loaisanpham"=> $this ->loaiSanPham->listAllLoaiSanPham(),
                 "sanPham"=>$this ->sanPham->listAllSanPham(),
                 "getAllUser"=>$this->user->get_AllUser($_SESSION['usernameUser-login']),
-                "alldonhang"=>$this->donhang->getAll_Donhang_theoUser($_SESSION['usernameUser-login'])
+                "alldonhang"=>$this->donhang->getAll_Donhang_theoUser($_SESSION['usernameUser-login']) 
             ]);
         }else{
                    $this->view("MasterPage1", [

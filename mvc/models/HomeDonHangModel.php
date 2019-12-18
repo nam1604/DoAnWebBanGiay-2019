@@ -8,7 +8,7 @@ class HomeDonHangModel extends DB{
 
     // updat ham 18/12/2012
      public function insert_Donhang1($iduser,$idchitiet,$soluong_sp,$tongtien_dh,$trangthai_dh,$tenSP,$sodiennguoinhan,$diachinguoinhan,$hinhthucthanhtoan){
-       $sql="INSERT INTO dbl_hoadon(id_user,id_chitiet,soluong_sp,tongtien_dh,trangthai_dh,tensp,sodiennguoinhan,diachinguoinhan,hinhthucthanhtoan) VALUES('$iduser','$idchitiet','$soluong_sp','$tongtien_dh','$trangthai_dh','$tenSP','$sodiennguoinhan','$diachinguoinhan','$hinhthucthanhtoan')";
+      $sql="INSERT INTO dbl_hoadon(id_user,id_chitiet,soluong_sp,tongtien_dh,trangthai_dh,tensp,sodiennguoinhan,diachinguoinhan,hinhthucthanhtoan) VALUES('$iduser','$idchitiet','$soluong_sp','$tongtien_dh','$trangthai_dh','$tenSP','$sodiennguoinhan','$diachinguoinhan','$hinhthucthanhtoan')";
        $result = mysqli_query($this->con,$sql);
     }
   
@@ -18,6 +18,7 @@ class HomeDonHangModel extends DB{
       // $sql ="SELECT * FROM dbl_hoadon JOIN dbl_chitiet_sp ON dbl_hoadon.id_chitiet = dbl_chitiet_sp.id_chitiet JOIN dbl_user ON dbl_hoadon.id_user = dbl_user.id_user WHERE dbl_hoadon.id_chitiet = dbl_chitiet_sp.id_chitiet AND dbl_hoadon.id_user= '$iduser'";
      
     }
+
 
     function Giohang($iduser){
       $qr = "SELECT * FROM dbl_hoadon JOIN dbl_chitiet_sp ON dbl_hoadon.id_chitiet = dbl_chitiet_sp.id_chitiet JOIN dbl_user ON dbl_hoadon.id_user = dbl_user.id_user WHERE dbl_hoadon.id_chitiet = dbl_chitiet_sp.id_chitiet AND dbl_hoadon.id_user= '$iduser' AND dbl_hoadon.id_user = dbl_user.id_user AND dbl_hoadon.trangthai_dh = 0";
@@ -73,7 +74,8 @@ class HomeDonHangModel extends DB{
        $sql="INSERT INTO dbl_vanchuyen(id_donhang,trangthai_vanchuyen) VALUES('$idonhang','0')";
        $result = mysqli_query($this->con,$sql);
     }
-
+    // get all don hang
+   
 
 
  }

@@ -30,7 +30,7 @@
                             <td><?php echo  $chuyenJson[$i]['tensp'];  ?></td>
                             <td><?php echo  $chuyenJson[$i]['tongtien_dh'];  ?></td>
                             <?php 
-                            if ($chuyenJson[$i]['trangthai_vanchuyen']==0) {
+                            if ($chuyenJson[$i]['trangthai_dh']==0) {
                            ?>
                           <td > <h4 style="color: red; text-align: center;">Đang xử lý</h4></td> 
                           <?php 

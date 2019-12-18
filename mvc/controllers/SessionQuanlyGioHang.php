@@ -170,9 +170,10 @@ class SessionQuanlyGioHang extends Controller{
 
     public function thuchien_thanhtoan($idchitiet){
         // buoc nay se luu du lieu vao dbl_hoadon
+
         
             $idChitietsp = $idchitiet;
-            $soluongsp =$_SESSION['giohang'][$idchitiet];
+            $soluongsp =$_SESSION['giohang'][$idchitiet]['idChitiet'];
             $tongtien = $_SESSION['giohang'][$idchitiet]['gia'] * $_SESSION['giohang'][$idchitiet]['soluongmua'];
             $tensp = $_SESSION['giohang'][$idchitiet]['tenSP'];
             $trangthai_dh=0;
@@ -189,7 +190,27 @@ class SessionQuanlyGioHang extends Controller{
         if (isset($_SESSION['usernameUser-login'])){
             $this->donhang->insert_Donhang1($iduser,$idChitietsp,$soluongsp,$tongtien,$trangthai_dh,$tensp,$sdt,$diachi,$hinhthuc,$xacnhan_donhang);
 
+            $this->view("MasterPage1", [
+            "page"=>"showAllProduct",
+            "size"=> $this->size->get_Size(),
+            "mausac"=> $this->mausac->get_Mau(),
+            "chitietsanpham"=> $this ->chiTietSanPham->listAllChiTietSanPham(),
+            "hinhanh"=>$this ->hinhAnh->get_HinhAnh(),
+            "loaisanpham"=> $this ->loaiSanPham->listAllLoaiSanPham(),
+            "sanPham"=>$this ->sanPham->listAllSanPham()
+        ]);
+
            
+        }else{
+             $this->view("MasterPage1", [
+                "page"=>"ShopageLogin",
+                "size"=> $this->size->get_Size(),
+                "mausac"=> $this->mausac->get_Mau(),
+                "chitietsanpham"=> $this ->chiTietSanPham->listAllChiTietSanPham(),
+                "hinhanh"=>$this ->hinhAnh->get_HinhAnh(),
+                "loaisanpham"=> $this ->loaiSanPham->listAllLoaiSanPham(),
+                "sanPham"=>$this ->sanPham->listAllSanPham()
+            ]);
         }
     }
 
